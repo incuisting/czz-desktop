@@ -1,0 +1,166 @@
+name: Release
+on:
+  push:
+    branches:
+      - master
+      - beta
+
+jobs:
+  precheck:
+    continue-on-error: true # 如果这个这个 job 挂了继续往下走
+    runs-on: ubuntu-latest
+    # Map a step output to a job output
+    outputs:
+      should_skip: ${{ steps.skip_check.outputs.should_skip }}
+    steps:
+      - id: skip_check
+        # 这个 action 可以 cancel 掉先前运行的 action
+        # 使得运行的脚本始终是最新的 commit
+        # https://github.com/marketplace/actions/skip-duplicate-actions
+        uses: fkirc/skip-duplicate-actions@master
+        with:
+          skip_after_successful_duplicate: 'true'
+          paths_ignore: '["**/README.md", "**/docs/**"]'
+
+  test:
+    name: Code quality check
+    needs: precheck
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [macos-latest, windows-latest]
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+
+      - uses: c-hive/gha-yarn-cache@v1
+
+      - name: Install
+        run: yarn
+
+      - name: lint
+        run: yarn lint
+
+  check:
+    needs: precheck
+    name: Release check
+    runs-on: ubuntu-latest
+    outputs:
+      # 将 semantic 输出的值作为下一环节的输入
+      is_new_version: ${{ steps.semantic.outputs.new_release_published }} # ! MUST BE STRING
+      version: ${{ steps.semantic.outputs.new_release_version }}
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Semantic Release with dryRun
+        uses: cycjimmy/semantic-release-action@v2
+        id: semantic
+        with:
+          dry_run: true
+          extra_plugins: semantic-release-config-gitmoji
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  build:
+    needs: [check, test]
+    name: Build
+    if: needs.check.outputs.is_new_version == 'true'
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [macos-latest, windows-latest]
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: c-hive/gha-yarn-cache@v1
+
+      - name: Install
+        run: yarn
+
+      - name: Tricky version
+        run: npx npe version ${{ needs.check.outputs.version }}
+
+      - name: Build artifact on macOS
+        if: runner.os == 'macOS'
+        run: yarn build --publish never # 不使用发包配置 https://www.electron.build/configuration/publish#how-to-publish
+        env:
+          # 导入证书环境 有了签名可以保证 electron 在需要授权时使用的是同一个身份 id
+          # Ref https://www.electron.build/code-signing
+          CSC_LINK: ./build/developer-id-app-certs.p12
+          CSC_KEY_PASSWORD: ${{ secrets.APPLE_APP_CERTS_PASSWORD }}
+          # 针对 macOS 提供 APPLE_ID 和 APPLE_ID_PASSWORD 进行 DMG 公证
+          APPLE_ID: ${{ secrets.APPLE_ID }}
+          APPLE_ID_PASSWORD: ${{ secrets.APPLE_ID_PASSWORD }}
+
+      # 目前由于 electron-builder 在 10.15 版本打 zip 包存在 bug
+      # 详见 https://github.com/electron-userland/electron-builder/issues/4299
+      # 所以需要手动完成 zip 包的制作
+      - name: Build zip artifact on macOS
+        if: runner.os == 'macOS'
+        run: yarn build:mac-zip
+
+      - name: Build artifact on other Platform
+        if: runner.os != 'macOS'
+        run: yarn build --publish never # 不使用发包配置 https://www.electron.build/configuration/publish#how-to-publish
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: release
+          path: |
+            release/latest*
+            release/umi*.dmg*
+            release/umi*.zip*
+            release/umi*.exe*
+            release/umi*.AppImage
+
+  status:
+    needs: check
+    runs-on: ubuntu-latest
+    name: Release Status
+    steps:
+      - name: Release Status
+        run: echo "🚦New Verison Release Status -> ${{ needs.check.outputs.is_new_version }}"
+      - name: Release Version
+        run: echo "🚦New Verison Release Version -> ${{ needs.check.outputs.version }}"
+
+  list:
+    needs: build
+    name: List Artifact
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: release
+          path: release
+
+      - name: List artifact
+        run: ls -al release
+
+  publish:
+    if: "! contains(github.event.head_commit.message, '[skip ci]')"
+    needs: build
+    name: Semantic release
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Download artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: release
+          path: release
+
+      - name: List artifact
+        run: ls -al release
+
+      - name: Release
+        uses: cycjimmy/semantic-release-action@v2
+        with:
+          extra_plugins: semantic-release-config-gitmoji
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
