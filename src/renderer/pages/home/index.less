@@ -3,7 +3,16 @@
 .container {
   background: @background-color-base;
 
-  @apply flex-center-children h-screen;
+  @apply h-screen;
+}
+
+.buttonGroup {
+  @apply h-8;
+  @apply flex;
+  @apply py-4;
+  & > * {
+    @apply ml-4;
+  }
 }
 
 .content {
@@ -20,5 +29,6 @@
   @apply mb-8;
 }
 .card {
-  @apply mt-4 w-80;
+  @apply mt-4;
+  @apply w-80;
 }

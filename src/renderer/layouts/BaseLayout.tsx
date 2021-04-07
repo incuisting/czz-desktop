@@ -1,17 +1,17 @@
 import type { FC } from 'react';
-import { useDarkMode } from '@/hooks';
+// import { useDarkMode } from '@/hooks';
 
-import styles from './BaseLayout.less';
+// import styles from './BaseLayout.less';
 
 const BaseLayout: FC = ({ children }) => {
-  const darkModeService = useDarkMode();
+  // const darkModeService = useDarkMode();
 
-  const { theme, switchDarkMode } = darkModeService;
+  // const { theme, switchDarkMode } = darkModeService;
 
   return (
     <>
       {children}
-      <div className={styles.button} onClick={switchDarkMode}>
+      {/* <div className={styles.button} onClick={switchDarkMode}>
         <img
           src={
             theme === 'dark'
@@ -21,7 +21,7 @@ const BaseLayout: FC = ({ children }) => {
           className={styles.img}
           alt={'切换模式'}
         />
-      </div>
+      </div> */}
     </>
   );
 };
