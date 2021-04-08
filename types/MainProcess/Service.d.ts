@@ -1,10 +1,15 @@
 declare namespace Main {
-  import type { UserService, SystemService } from '../../src/main/services';
+  import type {
+    UserService,
+    SystemService,
+    PillarService,
+  } from '../../src/main/services';
 
   /**
    * Electron 支持的服务
    */
   interface Services {
+    pillar: PillarService;
     user: UserService;
     system: SystemService;
   }

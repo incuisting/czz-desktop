@@ -2,7 +2,7 @@ import { AsyncContainerModule, Container } from 'inversify';
 import { buildProviderModule } from 'inversify-binding-decorators';
 import type { Repository } from 'typeorm';
 
-import { User } from '@/models';
+import { Pillar, User } from '@/models';
 import { getDBConnection, getRepository } from '@/utils';
 import TYPES from './types';
 
@@ -24,6 +24,12 @@ export const asyncBindings = new AsyncContainerModule(async (bind) => {
   bind<Repository<User>>(TYPES.UserRepository)
     .toDynamicValue(() => {
       return getRepository(User);
+    })
+    .inRequestScope();
+
+  bind<Repository<Pillar>>(TYPES.PillarRepository)
+    .toDynamicValue(() => {
+      return getRepository(Pillar);
     })
     .inRequestScope();
 });

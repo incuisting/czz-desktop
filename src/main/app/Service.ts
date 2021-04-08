@@ -1,5 +1,5 @@
 import { inject } from 'inversify';
-import { SystemService, UserService } from '@/services';
+import { PillarService, SystemService, UserService } from '@/services';
 import { logAfter, logBefore, provideSingleton } from '@/utils';
 import { ipcMain } from 'electron';
 import { CHANNELS } from '@/common';
@@ -10,6 +10,9 @@ export class Service {
 
   @inject(UserService)
   user!: UserService;
+
+  @inject(PillarService)
+  pillar!: PillarService;
 
   @inject(SystemService)
   system!: SystemService;
@@ -24,6 +27,7 @@ export class Service {
     global.services = {
       user: this.user,
       system: this.system,
+      pillar: this.pillar,
     };
 
     // 检查 macOS 权限上桥

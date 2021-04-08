@@ -1,14 +1,15 @@
-import { FC, useEffect, useState } from 'react';
+import type { FC} from 'react';
+import { useEffect, useState } from 'react';
 import { Button, Checkbox } from 'antd';
 import { useSelections } from 'ahooks';
 
-// import { routeTo } from '@/utils';
+import { routeTo } from '@/utils';
 import { useDatabase } from '@/hooks';
 
 import styles from './index.less';
 
 const Home: FC = () => {
-  const { user } = useDatabase();
+  const { pillar } = useDatabase();
   const [czzList, setCzz] = useState([]);
   const [selections, setSelections] = useState<number[]>([]);
   const {
@@ -20,10 +21,11 @@ const Home: FC = () => {
     // partiallySelected,
   } = useSelections(selections, []);
   useEffect(() => {
+    // didMount
     async function queryDB() {
-      const czzList = await user.finAll();
-      setCzz(czzList);
-      setSelections(czzList.map((el: { id: number }) => el.id));
+      const devices = await pillar.finAll();
+      setCzz(devices);
+      setSelections(devices.map((el: { id: number }) => el.id));
     }
     queryDB();
   }, []);
@@ -37,7 +39,7 @@ const Home: FC = () => {
           }}
           type={'primary'}
         >
-          全选
+          All
         </Button>
         <Button
           onClick={() => {
@@ -45,7 +47,7 @@ const Home: FC = () => {
           }}
           type={'default'}
         >
-          上升
+          Up
         </Button>
         <Button
           onClick={() => {
@@ -53,13 +55,20 @@ const Home: FC = () => {
           }}
           type={'default'}
         >
-          下降
+          Down
+        </Button>
+        <Button
+          onClick={() => {
+            routeTo('/database');
+          }}
+        >
+          add device
         </Button>
       </div>
       <div className={styles.czzList}>
         {czzList.map((el: { id: number; name: string }, i) => {
           return (
-            <div className={styles.infoCard}>
+            <div className={styles.infoCard} key={i}>
               <Checkbox
                 checked={isSelected(el.id)}
                 onClick={() => toggle(el.id)}
