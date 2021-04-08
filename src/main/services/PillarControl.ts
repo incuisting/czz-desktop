@@ -1,9 +1,14 @@
-import { logAfter, provideSingleton } from '@/utils';
+import { logger, provideSingleton } from '@/utils';
 
 @provideSingleton(PillarControlService)
 export class PillarControlService {
-  @logAfter('test')
-  public up(t: string): string {
-    return t;
+  public up(connectInfo: { ip: string; port: string }): boolean {
+    console.log(connectInfo);
+    return true;
+  }
+
+  public down(connectInfo: { ip: string; port: string }): boolean {
+    logger(connectInfo);
+    return true;
   }
 }
