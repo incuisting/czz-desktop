@@ -1,12 +1,13 @@
 import type { FC } from 'react';
 import { Button, Card } from 'antd';
-import { useDatabase } from '@/hooks';
+import { useDatabase, usePillarControl } from '@/hooks';
 
 import { routeTo } from '@/utils';
 import styles from './index.less';
 
 const Home: FC = () => {
   const { pillar } = useDatabase();
+  const { pillarControl } = usePillarControl();
   return (
     <div className={styles.container}>
       <Card title={'测试数据库'} className={styles.card}>
@@ -24,6 +25,14 @@ const Home: FC = () => {
           }}
         >
           home
+        </Button>
+        <Button
+          onClick={() => {
+            const t = pillarControl.up('t');
+            console.log(t);
+          }}
+        >
+          up
         </Button>
       </Card>
     </div>

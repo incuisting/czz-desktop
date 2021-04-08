@@ -3,6 +3,7 @@ declare namespace Main {
     UserService,
     SystemService,
     PillarService,
+    PillarControlService,
   } from '../../src/main/services';
 
   /**
@@ -10,6 +11,7 @@ declare namespace Main {
    */
   interface Services {
     pillar: PillarService;
+    pillarControl: PillarControlService;
     user: UserService;
     system: SystemService;
   }
