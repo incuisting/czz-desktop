@@ -36,4 +36,7 @@ export class PillarService {
   public delete(ids: number[]) {
     this.model.delete(ids);
   }
+  public findByIds(ids: number[]): Promise<Pillar[]> {
+    return this.model.findByIds(ids);
+  }
 }
