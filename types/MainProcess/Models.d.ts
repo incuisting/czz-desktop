@@ -4,6 +4,6 @@ declare namespace Models {
     ip: string;
     port: string;
     name: string;
-    status: number;
+    status: 0 | 1 | 2;
   };
 }

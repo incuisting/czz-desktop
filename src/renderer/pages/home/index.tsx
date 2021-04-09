@@ -30,6 +30,10 @@ const Home: FC = () => {
     queryDB();
   }, []);
 
+  const computedStatusStr = (status: 0 | 1 | 2) => {
+    const dic = { 0: '离线', 1: '升起', 2: '下降' };
+    return dic[status];
+  };
   return (
     <div className={styles.container}>
       <div className={styles.buttonGroup}>
@@ -67,44 +71,51 @@ const Home: FC = () => {
           add device
         </Button>
       </div>
-      <Row gutter={[8, 8]}>
-        {czzList.map((el) => {
-          return (
-            <Col span={6} key={el.id}>
-              <Card
-                title={
-                  <div>
-                    <Checkbox
-                      checked={isSelected(el.id)}
-                      onClick={() => toggle(el.id)}
-                    ></Checkbox>
-                    <div>{el.name}</div>
-                    <div>{el.status}</div>
-                  </div>
-                }
-                bordered={false}
-              >
-                <div className={styles.operator}>
-                  <Button
-                    onClick={() => {
-                      up([el.id]);
-                    }}
-                  >
-                    up
-                  </Button>
-                  <Button
-                    onClick={() => {
-                      down([el.id]);
-                    }}
-                  >
-                    down
-                  </Button>
-                </div>
-              </Card>
-            </Col>
-          );
-        })}
-      </Row>
+      <div className={styles.content}>
+        <Row gutter={[8, 8]}>
+          {czzList.map((el) => {
+            return (
+              <Col span={6} key={el.id}>
+                <Card
+                  title={
+                    <div className={styles.cardHeader}>
+                      <Checkbox
+                        checked={isSelected(el.id)}
+                        onClick={() => toggle(el.id)}
+                      ></Checkbox>
+                      <div className={styles.cardTitle}>
+                        <div>{el.name}</div>
+                        <div>{computedStatusStr(el.status)}</div>
+                      </div>
+                    </div>
+                  }
+                  bordered={false}
+                >
+                  <Card.Grid className={styles.operatorButton}>
+                    <div
+                      onClick={() => {
+                        up([el.id]);
+                      }}
+                    >
+                      up
+                    </div>
+                  </Card.Grid>
+
+                  <Card.Grid className={styles.operatorButton}>
+                    <div
+                      onClick={() => {
+                        down([el.id]);
+                      }}
+                    >
+                      down
+                    </div>
+                  </Card.Grid>
+                </Card>
+              </Col>
+            );
+          })}
+        </Row>
+      </div>
     </div>
   );
 };

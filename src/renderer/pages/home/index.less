@@ -3,11 +3,28 @@
 .container {
   padding: 0 8px;
   background: @background-color-base;
+  @apply flex flex-col;
 }
 
 .buttonGroup {
+  @apply sticky top-0 z-50;
   padding: 16px 0;
+  background: @background-color-base;
   & > * {
     @apply ml-4;
   }
+}
+.content {
+  @apply flex-1;
+}
+.cardHeader {
+  @apply flex;
+  .cardTitle {
+    width: 100%;
+    @apply ml-3 flex justify-between items-center;
+  }
+}
+.operatorButton {
+  width: 50%;
+  @apply text-center cursor-pointer;
 }
