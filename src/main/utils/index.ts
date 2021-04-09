@@ -1,4 +1,5 @@
 export * from './logger';
+export * from './modbus';
 export * from './window';
 export * from './ioc';
 

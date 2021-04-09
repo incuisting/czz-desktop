@@ -11,7 +11,7 @@ export function usePillarControl<T>() {
     ids.forEach(async (id) => {
       const pillars = pillar.findByIds([id]);
       console.log('up pillars', pillars);
-      pillarControl.up(id);
+      pillarControl.up({ ip: '10.1.1.1', port: 8888 });
     });
   };
 
