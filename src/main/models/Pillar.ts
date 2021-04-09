@@ -1,4 +1,10 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  Column,
+  Entity,
+  PrimaryGeneratedColumn,
+  CreateDateColumn,
+  UpdateDateColumn,
+} from 'typeorm';
 
 @Entity('Pillar')
 export class Pillar {
@@ -16,4 +22,9 @@ export class Pillar {
   // 0 offline 1up 2down
   @Column()
   status?: number;
+
+  @CreateDateColumn({ name: 'created_at' })
+  created_at?: Date;
+  @UpdateDateColumn({ name: 'updated_at' })
+  updated_at?: Date;
 }

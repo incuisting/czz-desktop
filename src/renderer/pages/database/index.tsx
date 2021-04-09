@@ -7,7 +7,7 @@ import styles from './index.less';
 
 const Home: FC = () => {
   const { pillar } = useDatabase();
-  const { pillarControl } = usePillarControl();
+  const { up } = usePillarControl<number>();
   return (
     <div className={styles.container}>
       <Card title={'测试数据库'} className={styles.card}>
@@ -28,12 +28,13 @@ const Home: FC = () => {
         </Button>
         <Button
           onClick={() => {
-            const t = pillarControl.up('t');
+            const t = up([1]);
             console.log(t);
           }}
         >
           up
         </Button>
+        <Button></Button>
       </Card>
     </div>
   );
