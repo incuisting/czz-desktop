@@ -4,7 +4,7 @@ import { useDatabase } from './useDatabase';
 /**
  * 获取数据库
  */
-export default function usePillarControl<T>() {
+export function usePillarControl<T>() {
   const { pillar } = useDatabase();
   const { pillarControl } = database;
   const up = (ids: T[]) => {

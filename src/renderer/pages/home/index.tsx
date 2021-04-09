@@ -1,24 +1,24 @@
 import type { FC } from 'react';
 import { useEffect, useState } from 'react';
-import { Button, Checkbox } from 'antd';
+import { Button, Checkbox, Row, Card, Col } from 'antd';
 import { useSelections } from 'ahooks';
 
 import { routeTo } from '@/utils';
-import { useDatabase } from '@/hooks';
+import { useDatabase, usePillarControl } from '@/hooks';
 
 import styles from './index.less';
 
 const Home: FC = () => {
   const { pillar } = useDatabase();
-  const [czzList, setCzz] = useState([]);
+  const { up, down } = usePillarControl<number>();
+  const [czzList, setCzz] = useState<Models.Pillar[]>([]);
   const [selections, setSelections] = useState<number[]>([]);
   const {
-    // selected,
-    // allSelected,
+    selected,
+    allSelected,
     isSelected,
     toggle,
     toggleAll,
-    // partiallySelected,
   } = useSelections(selections, []);
   useEffect(() => {
     // didMount
@@ -39,19 +39,21 @@ const Home: FC = () => {
           }}
           type={'primary'}
         >
-          All
+          {allSelected ? '取消' : 'All'}
         </Button>
         <Button
+          disabled={!allSelected}
           onClick={() => {
-            console.log('up');
+            up(selected);
           }}
           type={'default'}
         >
           Up
         </Button>
         <Button
+          disabled={!allSelected}
           onClick={() => {
-            console.log('down');
+            down(selected);
           }}
           type={'default'}
         >
@@ -65,24 +67,44 @@ const Home: FC = () => {
           add device
         </Button>
       </div>
-      <div className={styles.czzList}>
-        {czzList.map((el: { id: number; name: string }, i) => {
+      <Row gutter={[8, 8]}>
+        {czzList.map((el) => {
           return (
-            <div className={styles.infoCard} key={i}>
-              <Checkbox
-                checked={isSelected(el.id)}
-                onClick={() => toggle(el.id)}
-              ></Checkbox>
-              <div>{el.name}</div>
-              <div>{el.status}</div>
-              <div className={styles.operator}>
-                <div>up</div>
-                <div>down</div>
-              </div>
-            </div>
+            <Col span={6} key={el.id}>
+              <Card
+                title={
+                  <div>
+                    <Checkbox
+                      checked={isSelected(el.id)}
+                      onClick={() => toggle(el.id)}
+                    ></Checkbox>
+                    <div>{el.name}</div>
+                    <div>{el.status}</div>
+                  </div>
+                }
+                bordered={false}
+              >
+                <div className={styles.operator}>
+                  <Button
+                    onClick={() => {
+                      up([el.id]);
+                    }}
+                  >
+                    up
+                  </Button>
+                  <Button
+                    onClick={() => {
+                      down([el.id]);
+                    }}
+                  >
+                    down
+                  </Button>
+                </div>
+              </Card>
+            </Col>
           );
         })}
-      </div>
+      </Row>
     </div>
   );
 };
