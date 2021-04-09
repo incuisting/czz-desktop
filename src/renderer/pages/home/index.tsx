@@ -1,4 +1,4 @@
-import type { FC} from 'react';
+import type { FC } from 'react';
 import { useEffect, useState } from 'react';
 import { Button, Checkbox } from 'antd';
 import { useSelections } from 'ahooks';
@@ -72,9 +72,13 @@ const Home: FC = () => {
               <Checkbox
                 checked={isSelected(el.id)}
                 onClick={() => toggle(el.id)}
-              >
-                {el.name}
-              </Checkbox>
+              ></Checkbox>
+              <div>{el.name}</div>
+              <div>{el.status}</div>
+              <div className={styles.operator}>
+                <div>up</div>
+                <div>down</div>
+              </div>
             </div>
           );
         })}
