@@ -1,7 +1,7 @@
 import type { FC } from 'react';
 import { useEffect, useState } from 'react';
 import { Button, Checkbox, Row, Card, Col } from 'antd';
-import { useSelections } from 'ahooks';
+import { useSelections, useInterval } from 'ahooks';
 
 import { routeTo } from '@/utils';
 import { useDatabase, usePillarControl } from '@/hooks';
@@ -19,16 +19,22 @@ const Home: FC = () => {
     isSelected,
     toggle,
     toggleAll,
+    unSelectAll,
   } = useSelections(selections, []);
+
+  async function queryDB() {
+    const devices = await pillar.finAll();
+    setCzz(devices);
+    setSelections(devices.map((el: { id: number }) => el.id));
+  }
   useEffect(() => {
     // didMount
-    async function queryDB() {
-      const devices = await pillar.finAll();
-      setCzz(devices);
-      setSelections(devices.map((el: { id: number }) => el.id));
-    }
     queryDB();
   }, []);
+
+  useInterval(() => {
+    console.log(1);
+  }, 1000);
 
   const computedStatusStr = (status: 0 | 1 | 2) => {
     const dic = { 0: '离线', 1: '升起', 2: '下降' };
@@ -46,18 +52,22 @@ const Home: FC = () => {
           {allSelected ? '取消' : 'All'}
         </Button>
         <Button
-          disabled={!allSelected}
+          disabled={!(selected.length > 0)}
           onClick={() => {
             up(selected);
+            unSelectAll();
+            queryDB();
           }}
           type={'default'}
         >
           Up
         </Button>
         <Button
-          disabled={!allSelected}
+          disabled={!(selected.length > 0)}
           onClick={() => {
             down(selected);
+            unSelectAll();
+            queryDB();
           }}
           type={'default'}
         >

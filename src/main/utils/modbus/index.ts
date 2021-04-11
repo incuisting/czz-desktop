@@ -1,1 +1,1 @@
-export { readCoils } from './modbusOperator';
+export * from './modbusOperator';
