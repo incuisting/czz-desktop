@@ -67,7 +67,7 @@ export const readCoils = (
     socket.on('error', (...error) => {
       console.error(...error);
       err(...error);
-    });
+  });
     socket.connect(options);
   } catch (e) {
     console.log(e);

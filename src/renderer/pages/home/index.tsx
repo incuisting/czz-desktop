@@ -85,7 +85,7 @@ const Home: FC = () => {
         <Row gutter={[8, 8]}>
           {czzList.map((el) => {
             return (
-              <Col span={6} key={el.id}>
+              <Col span={8} key={el.id}>
                 <Card
                   title={
                     <div className={styles.cardHeader}>

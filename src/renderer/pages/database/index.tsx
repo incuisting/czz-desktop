@@ -1,16 +1,41 @@
 import type { FC } from 'react';
+import { useEffect, useState } from 'react';
 import { Button, Card } from 'antd';
-import { useDatabase, usePillarControl } from '@/hooks';
+import { useDatabase } from '@/hooks';
 
 import { routeTo } from '@/utils';
 import styles from './index.less';
 
 const Home: FC = () => {
   const { pillar } = useDatabase();
-  const { up } = usePillarControl<number>();
+  const [czzList, setCzz] = useState<Models.Pillar[]>([]);
+
+  async function queryDB() {
+    const devices = await pillar.finAll();
+    setCzz(devices);
+  }
+  useEffect(() => {
+    // didMount
+    queryDB();
+  }, []);
   return (
     <div className={styles.container}>
-      <Card title={'测试数据库'} className={styles.card}>
+      <Card
+        title={
+          <div className={styles.cardTitle}>
+            <Button
+              onClick={() => {
+                routeTo('/home');
+              }}
+            >
+              返回
+            </Button>
+            <span>添加设备</span>
+          </div>
+        }
+        className={styles.card}
+      >
+        <pre>{JSON.stringify(czzList)}</pre>
         <Button
           onClick={async () => {
             const data = await pillar.insert('192.168.70.10', 'test', '8080');
@@ -19,22 +44,6 @@ const Home: FC = () => {
         >
           插入数据
         </Button>
-        <Button
-          onClick={() => {
-            routeTo('/home');
-          }}
-        >
-          home
-        </Button>
-        <Button
-          onClick={() => {
-            const t = up([1]);
-            console.log(t);
-          }}
-        >
-          up
-        </Button>
-        <Button></Button>
       </Card>
     </div>
   );
