@@ -34,6 +34,7 @@ export const readCoils = (
   scope: { host: string; port: number },
   coilValue: { start: number; count: number },
   cb: (result: any) => void,
+  err: (error: any) => void,
 ) => {
   const socket = new Socket();
 
@@ -56,11 +57,17 @@ export const readCoils = (
           );
           cb(value);
         })
-        .catch(handleErrors)
+        .catch((...args) => {
+          handleErrors(...args);
+          err(...args);
+        })
         .finally(() => socket.end());
     });
 
-    socket.on('error', console.error);
+    socket.on('error', (...error) => {
+      console.error(...error);
+      err(...error);
+    });
     socket.connect(options);
   } catch (e) {
     console.log(e);
@@ -71,6 +78,7 @@ export const writeSingleCoil = (
   scope: { host: string; port: number },
   coilValue: { address: number; value: boolean | 0 | 1 },
   cb: (value: any) => void,
+  err: (error: any) => void,
 ) => {
   const socket = new Socket();
 
@@ -89,10 +97,16 @@ export const writeSingleCoil = (
         console.log(`Response Function Code: ${response.body.fc}`);
         cb(value);
       })
-      .catch(handleErrors)
+      .catch((...args) => {
+        handleErrors(...args);
+        err(...args);
+      })
       .finally(() => socket.end());
   });
 
-  socket.on('error', console.error);
+  socket.on('error', (...error) => {
+    console.error(...error);
+    err(...error)
+  });
   socket.connect(options);
 };
