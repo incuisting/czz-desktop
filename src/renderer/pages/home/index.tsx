@@ -37,7 +37,7 @@ const Home: FC = () => {
   }, 1000);
 
   const computedStatusStr = (status: 0 | 1 | 2) => {
-    const dic = { 0: '离线', 1: '升起', 2: '下降' };
+    const dic = { 0: '离线', 1: '升起', 2: '降下' };
     return dic[status];
   };
   return (
@@ -49,7 +49,7 @@ const Home: FC = () => {
           }}
           type={'primary'}
         >
-          {allSelected ? '取消' : 'All'}
+          {allSelected ? '取消' : '全选'}
         </Button>
         <Button
           disabled={!(selected.length > 0)}
@@ -60,7 +60,7 @@ const Home: FC = () => {
           }}
           type={'default'}
         >
-          Up
+          升起
         </Button>
         <Button
           disabled={!(selected.length > 0)}
@@ -71,14 +71,14 @@ const Home: FC = () => {
           }}
           type={'default'}
         >
-          Down
+          降下
         </Button>
         <Button
           onClick={() => {
             routeTo('/database');
           }}
         >
-          add device
+          添加设备
         </Button>
       </div>
       <div className={styles.content}>
@@ -107,7 +107,7 @@ const Home: FC = () => {
                         up([el.id]);
                       }}
                     >
-                      up
+                      升
                     </div>
                   </Card.Grid>
 
@@ -117,7 +117,7 @@ const Home: FC = () => {
                         down([el.id]);
                       }}
                     >
-                      down
+                      降
                     </div>
                   </Card.Grid>
                 </Card>
