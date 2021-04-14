@@ -6,7 +6,7 @@ import { useDatabase } from '@/hooks';
 import { routeTo } from '@/utils';
 import styles from './index.less';
 
-const Home: FC = () => {
+const DataBase: FC = () => {
   const { pillar } = useDatabase();
   const [czzList, setCzz] = useState<Models.Pillar[]>([]);
 
@@ -49,4 +49,4 @@ const Home: FC = () => {
   );
 };
 
-export default Home;
+export default DataBase;
