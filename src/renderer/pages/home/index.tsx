@@ -5,6 +5,7 @@ import { useSelections, useInterval } from 'ahooks';
 
 import { routeTo } from '@/utils';
 import { useDatabase, usePillarControl } from '@/hooks';
+import BaseModal from './BaseModal';
 
 import styles from './index.less';
 
@@ -142,6 +143,7 @@ const Home: FC = () => {
           })}
         </Row>
       </div>
+      <BaseModal></BaseModal>
     </div>
   );
 };
