@@ -43,43 +43,59 @@ const Home: FC = () => {
   return (
     <div className={styles.container}>
       <div className={styles.buttonGroup}>
-        <Button
-          onClick={() => {
-            toggleAll();
-          }}
-          type={'primary'}
-        >
-          {allSelected ? '取消' : '全选'}
-        </Button>
-        <Button
-          disabled={!(selected.length > 0)}
-          onClick={() => {
-            up(selected);
-            unSelectAll();
-            queryDB();
-          }}
-          type={'default'}
-        >
-          升起
-        </Button>
-        <Button
-          disabled={!(selected.length > 0)}
-          onClick={() => {
-            down(selected);
-            unSelectAll();
-            queryDB();
-          }}
-          type={'default'}
-        >
-          降下
-        </Button>
-        <Button
-          onClick={() => {
-            routeTo('/database');
-          }}
-        >
-          添加设备
-        </Button>
+        <div className={styles.operator}>
+          <Button
+            onClick={() => {
+              toggleAll();
+            }}
+            type={'primary'}
+          >
+            {allSelected ? '取消' : '全选'}
+          </Button>
+          <Button
+            disabled={!(selected.length > 0)}
+            onClick={() => {
+              up(selected);
+              unSelectAll();
+              queryDB();
+            }}
+            type={'default'}
+          >
+            升起
+          </Button>
+          <Button
+            disabled={!(selected.length > 0)}
+            onClick={() => {
+              down(selected);
+              unSelectAll();
+              queryDB();
+            }}
+            type={'default'}
+          >
+            降下
+          </Button>
+        </div>
+        <div className={styles.deviceManage}>
+          <Button
+            disabled={!(selected.length > 0)}
+            onClick={() => {
+              console.log('del');
+              pillar.delete(selected);
+              unSelectAll();
+              queryDB();
+            }}
+            danger
+          >
+            删除设备
+          </Button>
+          <Button
+            onClick={() => {
+              routeTo('/database');
+            }}
+          >
+            添加设备
+          </Button>
+        </div>
       </div>
       <div className={styles.content}>
         <Row gutter={[8, 8]}>
