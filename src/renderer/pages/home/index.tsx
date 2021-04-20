@@ -1,9 +1,10 @@
 import type { FC } from 'react';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { Button, Checkbox, Row, Card, Col } from 'antd';
-import { useSelections, useInterval } from 'ahooks';
+import { SettingOutlined } from '@ant-design/icons';
 
-import { routeTo } from '@/utils';
+import { useSelections, useInterval, useMount } from 'ahooks';
+
 import { useDatabase, usePillarControl } from '@/hooks';
 import BaseModal from './BaseModal';
 
@@ -13,6 +14,7 @@ const Home: FC = () => {
   const { pillar } = useDatabase();
   const { up, down } = usePillarControl<number>();
   const [czzList, setCzz] = useState<Models.Pillar[]>([]);
+  const [pillarDetail, setPillarDetail] = useState<Models.Pillar | null>(null);
   const [selections, setSelections] = useState<number[]>([]);
   const {
     selected,
@@ -22,17 +24,15 @@ const Home: FC = () => {
     toggleAll,
     unSelectAll,
   } = useSelections(selections, []);
-
+  const [modalVisible, setModalVisible] = useState(false);
   async function queryDB() {
     const devices = await pillar.finAll();
     setCzz(devices);
     setSelections(devices.map((el: { id: number }) => el.id));
   }
-  useEffect(() => {
-    // didMount
+  useMount(() => {
     queryDB();
-  }, []);
-
+  });
   useInterval(() => {
     console.log(1);
   }, 1000);
@@ -91,7 +91,7 @@ const Home: FC = () => {
           </Button>
           <Button
             onClick={() => {
-              routeTo('/database');
+              setModalVisible(true);
             }}
           >
             添加设备
@@ -102,7 +102,7 @@ const Home: FC = () => {
         <Row gutter={[8, 8]}>
           {czzList.map((el) => {
             return (
-              <Col span={6} key={el.id}>
+              <Col span={8} key={el.id}>
                 <Card
                   title={
                     <div className={styles.cardHeader}>
@@ -112,7 +112,19 @@ const Home: FC = () => {
                       ></Checkbox>
                       <div className={styles.cardTitle}>
                         <div>{el.name}</div>
-                        <div>{computedStatusStr(el.status)}</div>
+                        <div className={styles.status}>
+                          {computedStatusStr(el.status)}
+                          <div
+                            className={styles.edit}
+                            onClick={async () => {
+                              const item = await pillar.findByIds([el.id]);
+                              setPillarDetail(item[0]);
+                              setModalVisible(true);
+                            }}
+                          >
+                            <SettingOutlined />
+                          </div>
+                        </div>
                       </div>
                     </div>
                   }
@@ -143,7 +155,18 @@ const Home: FC = () => {
           })}
         </Row>
       </div>
-      <BaseModal></BaseModal>
+      <BaseModal
+        title={'添加'}
+        visible={modalVisible}
+        handleOk={(values) => {
+          console.log(values);
+        }}
+        handleCancel={() => {
+          setModalVisible(false);
+          setPillarDetail(null);
+        }}
+        initData={pillarDetail}
+      ></BaseModal>
     </div>
   );
 };
