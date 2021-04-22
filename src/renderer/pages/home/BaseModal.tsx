@@ -45,7 +45,24 @@ const BaseModal: FC<Props> = (props) => {
         <Form.Item
           name="ip"
           label="IP"
-          rules={[{ required: true, message: '请输入设备ip' }]}
+          rules={[
+            { required: true, message: '请输入设备ip' },
+
+            {
+              validator: (rule, value, cb) => {
+                if (value) {
+                  const IP = /((2(5[0-5]|[0-4]\d))|[0-1]?\d{1,2})(\.((2(5[0-5]|[0-4]\d))|[0-1]?\d{1,2})){3}/g;
+                  if (IP.test(value)) {
+                    cb();
+                  } else {
+                    cb(`请输入正确的ip格式,如:‘192.168.1.1’`);
+                  }
+                } else {
+                  cb();
+                }
+              },
+            },
+          ]}
         >
           <Input maxLength={15} />
         </Form.Item>
@@ -53,7 +70,24 @@ const BaseModal: FC<Props> = (props) => {
         <Form.Item
           name="port"
           label="端口"
-          rules={[{ required: true, message: '请输入设备端' }]}
+          rules={[
+            { required: true, message: '请输入设备端' },
+            {
+              validator: (rule, value, cb) => {
+                if (value) {
+                  const PORT = /^([0-9]|[1-9]\d{1,3}|[1-5]\d{4}|6[0-4]\d{3}|65[0-4]\d{2}|655[0-2]\d|6553[0-5])$/;
+
+                  if (PORT.test(value)) {
+                    cb();
+                  } else {
+                    cb(`请输入正确的端口格式,在1-65535之间`);
+                  }
+                } else {
+                  cb();
+                }
+              },
+            },
+          ]}
         >
           <Input maxLength={5} />
         </Form.Item>

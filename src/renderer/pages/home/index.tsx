@@ -41,6 +41,17 @@ const Home: FC = () => {
     const dic = { 0: '离线', 1: '升起', 2: '降下' };
     return dic[status];
   };
+  const addDevice = (values: { name: string; ip: string; port: string }) => {
+    const { name, ip, port } = values;
+    pillar.insert(ip, name, port);
+  };
+  const updateDevice = (
+    id: number,
+    values: { name: string; ip: string; port: string },
+  ) => {
+    const { name, ip, port } = values;
+    pillar.update(id, { name, ip, port });
+  };
   return (
     <div className={styles.container}>
       <div className={styles.buttonGroup}>
@@ -92,6 +103,7 @@ const Home: FC = () => {
           <Button
             onClick={() => {
               setModalVisible(true);
+              setPillarDetail(null);
             }}
           >
             添加设备
@@ -156,10 +168,15 @@ const Home: FC = () => {
         </Row>
       </div>
       <BaseModal
-        title={'添加'}
+        title={pillarDetail ? '编辑' : '添加'}
         visible={modalVisible}
         handleOk={(values) => {
-          console.log(values);
+          if (pillarDetail) {
+            const { id } = pillarDetail;
+            updateDevice(id, values);
+          } else {
+            addDevice(values);
+          }
         }}
         handleCancel={() => {
           setModalVisible(false);
