@@ -3,14 +3,9 @@ import { provideSingleton, readCoils, writeSingleCoil } from '@/utils';
 @provideSingleton(PillarControlService)
 export class PillarControlService {
   public async up(connectInfo: { host: string; port: number }): Promise<any> {
-    const write = () =>
+    const write = (addr, value) =>
       new Promise((resolve, reject) => {
-        writeSingleCoil(
-          connectInfo,
-          { address: 16, value: true },
-          resolve,
-          reject,
-        );
+        writeSingleCoil(connectInfo, { address: addr, value }, resolve, reject);
       });
     try {
       await write();
