@@ -1,54 +1,67 @@
-import { provideSingleton, readCoils, writeSingleCoil } from '@/utils';
-
+import {
+  provideSingleton,
+  connect,
+  createControlCommand,
+  createReadCommand,
+  parseRead,
+  CONTROL,
+} from '@/utils';
 @provideSingleton(PillarControlService)
 export class PillarControlService {
   public async up(connectInfo: { host: string; port: number }): Promise<any> {
-    const write = (addr, value) =>
+    const write = (addr: number, val: number) =>
       new Promise((resolve, reject) => {
-        writeSingleCoil(connectInfo, { address: addr, value }, resolve, reject);
+        connect(connectInfo, createControlCommand(addr, val), resolve, reject);
       });
     try {
-      await write();
+      await write(CONTROL.UP, CONTROL.OFF);
+      await write(CONTROL.UP, CONTROL.ON);
     } catch (e) {
       return e;
     }
   }
 
   public async down(connectInfo: { host: string; port: number }) {
-    const write = () =>
+    const write = (addr: number, val: number) =>
       new Promise((resolve, reject) => {
-        writeSingleCoil(
-          connectInfo,
-          { address: 17, value: true },
-          resolve,
-          reject,
-        );
+        connect(connectInfo, createControlCommand(addr, val), resolve, reject);
       });
     try {
-      await write();
+      await write(CONTROL.UP, CONTROL.OFF);
+      await write(CONTROL.UP, CONTROL.ON);
     } catch (e) {
       return e;
     }
   }
 
-  public async readStatus(connectInfo: { host: string; port: number }) {
-    const upStatus = () =>
+  public async readStatus(connectInfo: {
+    host: string;
+    port: number;
+  }): Promise<number | undefined> {
+    const upStatus = (addr: number, bits: number) =>
       new Promise((resolve, reject) => {
-        readCoils(connectInfo, { start: 18, count: 1 }, resolve, reject);
+        connect(connectInfo, createReadCommand(addr, bits), resolve, reject);
       });
 
-    const downStatus = () =>
+    const downStatus = (addr: number, bits: number) =>
       new Promise((resolve, reject) => {
-        readCoils(connectInfo, { start: 19, count: 1 }, resolve, reject);
+        connect(connectInfo, createReadCommand(addr, bits), resolve, reject);
       });
     try {
-      const [up, down] = await Promise.all([upStatus(), downStatus()]);
-      console.log('up', up);
-      console.log('down', down);
-      // 这个地方的回参格式还是未知
-      return { up, down };
+      const [up, down] = await Promise.all([
+        upStatus(CONTROL.UP_STATUS, 1),
+        downStatus(CONTROL.DOWN_STATUS, 1),
+      ]);
+      if (parseRead(up as Buffer)) {
+        return 1;
+      }
+      if (parseRead(down as Buffer)) {
+        return 2;
+      }
+      return;
     } catch (e) {
-      return e;
+      console.error(e);
+      return 0;
     }
   }
 }
