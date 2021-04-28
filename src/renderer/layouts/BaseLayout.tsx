@@ -1,5 +1,5 @@
 import type { FC } from 'react';
-// import { useDarkMode } from '@/hooks';
+import { useDatabase } from '@/hooks';
 
 // import styles from './BaseLayout.less';
 
@@ -8,6 +8,12 @@ const BaseLayout: FC = ({ children }) => {
 
   // const { theme, switchDarkMode } = darkModeService;
 
+  const { setting } = useDatabase();
+  const isActive = async () => {
+    const active = await setting.getActive();
+    console.log(active);
+  };
+  isActive();
   return (
     <>
       {children}

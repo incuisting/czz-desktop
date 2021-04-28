@@ -4,6 +4,7 @@ declare namespace Main {
     SystemService,
     PillarService,
     PillarControlService,
+    SettingService,
   } from '../../src/main/services';
 
   /**
@@ -14,6 +15,7 @@ declare namespace Main {
     pillarControl: PillarControlService;
     user: UserService;
     system: SystemService;
+    setting: SettingService;
   }
 }
 

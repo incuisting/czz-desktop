@@ -4,6 +4,7 @@ import {
   SystemService,
   UserService,
   PillarControlService,
+  SettingService,
 } from '@/services';
 import { logAfter, logBefore, provideSingleton } from '@/utils';
 import { ipcMain } from 'electron';
@@ -18,6 +19,9 @@ export class Service {
 
   @inject(PillarService)
   pillar!: PillarService;
+
+  @inject(SettingService)
+  setting!: SettingService;
 
   @inject(PillarControlService)
   pillarControl!: PillarControlService;
@@ -37,6 +41,7 @@ export class Service {
       system: this.system,
       pillar: this.pillar,
       pillarControl: this.pillarControl,
+      setting: this.setting,
     };
 
     // 检查 macOS 权限上桥

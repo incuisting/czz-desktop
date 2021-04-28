@@ -2,11 +2,11 @@ import { app } from 'electron';
 import type { ConnectionOptions, EntityTarget } from 'typeorm';
 import { createConnection, getConnection } from 'typeorm';
 import path from 'path';
-import { User, Pillar } from '@/models';
+import { Entities } from '@/models';
 import { getLogger } from '@/utils';
 import { isDev, isTest } from '@/common';
 
-const entities = [User, Pillar];
+const entities = [...Entities];
 
 // 数据库存储地址
 const storagePath = app.getPath('userData');
