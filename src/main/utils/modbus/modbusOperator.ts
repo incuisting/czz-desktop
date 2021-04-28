@@ -52,9 +52,9 @@ export function connect(
     socket.write(command);
   });
 
-  socket.on('error', (...error) => {
-    console.error(...error);
-    err(...error);
+  socket.on('error', (error) => {
+    console.error(error);
+    err(error);
     socket.end();
   });
   socket.on('data', (data) => {
