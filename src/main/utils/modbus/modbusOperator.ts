@@ -34,39 +34,67 @@ export const createReadCommand = (
   const combine = Buffer.concat([msgWithoutCrc, crcPack]);
   return combine;
 };
-export function connect(
-  connectInfo: {
-    host: string;
-    port: number;
-  },
-  command: Buffer,
-  cb: (result: any) => void,
-  err: (error: any) => void,
-) {
-  const socket = new Socket();
-  const options: SocketConnectOpts = {
-    ...connectInfo,
-  };
-
-  socket.on('connect', () => {
-    socket.write(command);
-  });
-
-  socket.on('error', (error) => {
-    console.error(error);
-    err(error);
-    socket.end();
-  });
-  socket.on('data', (data) => {
-    console.log('data', data);
-    cb(data);
-    socket.end();
-  });
-
-  socket.connect(options);
-}
-export function parseRead(readBuf: Buffer): boolean {
+function parseRead(readBuf: Buffer): boolean {
   const read = readBuf.readUInt16BE(2);
   const status_code = Buffer.from([read]).toString('hex');
   return STATUS_MAP[status_code];
+}
+
+export function querier(
+  connectInfo: SocketConnectOpts,
+  action: 'UP_STATUS' | 'DOWN_STATUS',
+): Promise<boolean> {
+  return new Promise((resolve, reject) => {
+    const socket = new Socket();
+    const options: SocketConnectOpts = {
+      ...connectInfo,
+    };
+
+    socket.on('connect', () => {
+      socket.write(createReadCommand(CONTROL[action], 1));
+    });
+
+    socket.on('error', (error) => {
+      console.error(error);
+      reject(error);
+      socket.end();
+    });
+    socket.on('data', (data) => {
+      const status = parseRead(data);
+      socket.end();
+      resolve(status);
+    });
+
+    socket.connect(options);
+  });
+}
+
+export function controller(
+  connectInfo: SocketConnectOpts,
+  action: 'UP' | 'DOWN',
+) {
+  return new Promise((resolve, reject) => {
+    const socket = new Socket();
+    const options: SocketConnectOpts = {
+      ...connectInfo,
+    };
+
+    socket.on('connect', () => {
+      socket.write(createControlCommand(CONTROL[action], CONTROL.OFF));
+      socket.write(createControlCommand(CONTROL[action], CONTROL.ON));
+    });
+
+    socket.on('error', (error) => {
+      console.error(error);
+      socket.end();
+      reject(error);
+    });
+    socket.on('data', (data) => {
+      console.log('data', data);
+      socket.end();
+      resolve(data);
+    });
+
+    socket.connect(options);
+  });
 }

@@ -1,34 +1,17 @@
-import {
-  provideSingleton,
-  connect,
-  createControlCommand,
-  createReadCommand,
-  parseRead,
-  CONTROL,
-} from '@/utils';
+import { provideSingleton, controller, querier } from '@/utils';
 @provideSingleton(PillarControlService)
 export class PillarControlService {
   public async up(connectInfo: { host: string; port: number }): Promise<any> {
-    const write = (addr: number, val: number) =>
-      new Promise((resolve, reject) => {
-        connect(connectInfo, createControlCommand(addr, val), resolve, reject);
-      });
     try {
-      await write(CONTROL.UP, CONTROL.OFF);
-      await write(CONTROL.UP, CONTROL.ON);
+      await controller(connectInfo, 'UP');
     } catch (e) {
       return e;
     }
   }
 
   public async down(connectInfo: { host: string; port: number }) {
-    const write = (addr: number, val: number) =>
-      new Promise((resolve, reject) => {
-        connect(connectInfo, createControlCommand(addr, val), resolve, reject);
-      });
     try {
-      await write(CONTROL.UP, CONTROL.OFF);
-      await write(CONTROL.UP, CONTROL.ON);
+      await controller(connectInfo, 'DOWN');
     } catch (e) {
       return e;
     }
@@ -37,28 +20,13 @@ export class PillarControlService {
   public async readStatus(connectInfo: {
     host: string;
     port: number;
-  }): Promise<number | undefined> {
-    const upStatus = (addr: number, bits: number) =>
-      new Promise((resolve, reject) => {
-        connect(connectInfo, createReadCommand(addr, bits), resolve, reject);
-      });
-
-    const downStatus = (addr: number, bits: number) =>
-      new Promise((resolve, reject) => {
-        connect(connectInfo, createReadCommand(addr, bits), resolve, reject);
-      });
+  }): Promise<number> {
     try {
-      const [up, down] = await Promise.all([
-        upStatus(CONTROL.UP_STATUS, 1),
-        downStatus(CONTROL.DOWN_STATUS, 1),
-      ]);
-      if (parseRead(up as Buffer)) {
+      const isUp = await querier(connectInfo, 'UP_STATUS');
+      if (isUp) {
         return 1;
       }
-      if (parseRead(down as Buffer)) {
-        return 2;
-      }
-      return;
+      return 2;
     } catch (e) {
       console.error(e);
       return 0;
