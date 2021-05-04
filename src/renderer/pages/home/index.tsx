@@ -12,7 +12,7 @@ import styles from './index.less';
 
 const Home: FC = () => {
   const { pillar } = useDatabase();
-  const { up, down } = usePillarControl<number>();
+  const { up, down, updateAllStatus } = usePillarControl<number>();
   const [czzList, setCzz] = useState<Models.Pillar[]>([]);
   const [pillarDetail, setPillarDetail] = useState<Models.Pillar | null>(null);
   const [selections, setSelections] = useState<number[]>([]);
@@ -34,7 +34,8 @@ const Home: FC = () => {
     queryDB();
   });
   useInterval(() => {
-    console.log(1);
+    updateAllStatus();
+    queryDB();
   }, 1000);
 
   const computedStatusStr = (status: 0 | 1 | 2) => {
@@ -53,6 +54,8 @@ const Home: FC = () => {
   ) => {
     const { name, ip, port } = values;
     pillar.update(id, { name, ip, port });
+    setModalVisible(false);
+    queryDB();
   };
   return (
     <div className={styles.container}>

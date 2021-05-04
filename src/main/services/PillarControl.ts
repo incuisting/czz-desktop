@@ -5,6 +5,7 @@ export class PillarControlService {
     try {
       await controller(connectInfo, 'UP');
     } catch (e) {
+      console.error(e);
       return e;
     }
   }
@@ -13,6 +14,7 @@ export class PillarControlService {
     try {
       await controller(connectInfo, 'DOWN');
     } catch (e) {
+      console.error(e);
       return e;
     }
   }

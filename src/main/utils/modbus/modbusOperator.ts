@@ -40,10 +40,10 @@ function parseRead(readBuf: Buffer): boolean {
   return STATUS_MAP[status_code];
 }
 
-export function querier(
+export function send(
   connectInfo: SocketConnectOpts,
-  action: 'UP_STATUS' | 'DOWN_STATUS',
-): Promise<boolean> {
+  command: Buffer,
+): Promise<Buffer> {
   return new Promise((resolve, reject) => {
     const socket = new Socket();
     const options: SocketConnectOpts = {
@@ -51,37 +51,7 @@ export function querier(
     };
 
     socket.on('connect', () => {
-      socket.write(createReadCommand(CONTROL[action], 1));
-    });
-
-    socket.on('error', (error) => {
-      console.error(error);
-      reject(error);
-      socket.end();
-    });
-    socket.on('data', (data) => {
-      const status = parseRead(data);
-      socket.end();
-      resolve(status);
-    });
-
-    socket.connect(options);
-  });
-}
-
-export function controller(
-  connectInfo: SocketConnectOpts,
-  action: 'UP' | 'DOWN',
-) {
-  return new Promise((resolve, reject) => {
-    const socket = new Socket();
-    const options: SocketConnectOpts = {
-      ...connectInfo,
-    };
-
-    socket.on('connect', () => {
-      socket.write(createControlCommand(CONTROL[action], CONTROL.OFF));
-      socket.write(createControlCommand(CONTROL[action], CONTROL.ON));
+      socket.write(command);
     });
 
     socket.on('error', (error) => {
@@ -90,11 +60,32 @@ export function controller(
       reject(error);
     });
     socket.on('data', (data) => {
-      console.log('data', data);
       socket.end();
       resolve(data);
     });
 
     socket.connect(options);
   });
+}
+
+export async function querier(
+  connectInfo: SocketConnectOpts,
+  action: 'UP_STATUS' | 'DOWN_STATUS',
+): Promise<boolean> {
+  const data = await send(connectInfo, createReadCommand(CONTROL[action], 1));
+
+  const status = parseRead(data);
+  return status;
+}
+
+export async function controller(
+  connectInfo: SocketConnectOpts,
+  action: 'UP' | 'DOWN',
+) {
+  try {
+    await send(connectInfo, createControlCommand(CONTROL[action], CONTROL.OFF));
+    await send(connectInfo, createControlCommand(CONTROL[action], CONTROL.ON));
+  } catch (e) {
+    console.error(e);
+  }
 }
