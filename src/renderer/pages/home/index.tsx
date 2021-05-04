@@ -44,6 +44,8 @@ const Home: FC = () => {
   const addDevice = (values: { name: string; ip: string; port: string }) => {
     const { name, ip, port } = values;
     pillar.insert(ip, name, port);
+    setModalVisible(false);
+    queryDB();
   };
   const updateDevice = (
     id: number,

@@ -11,10 +11,14 @@ export function usePillarControl<T>() {
     ids.forEach(async (id) => {
       const pillars = await pillar.findByIds([id]);
       console.log('up pillars', pillars);
-      if (pillar.length > 0) {
+      if (pillars.length > 0) {
         try {
-          await pillarControl.up({ host: pillar[0].ip, port: pillar[0].port });
+          await pillarControl.up({
+            host: pillars[0].ip,
+            port: pillars[0].port,
+          });
         } catch (e) {
+          console.error(e);
           pillar.update(id, { status: 0 });
         }
       }
@@ -25,9 +29,12 @@ export function usePillarControl<T>() {
     ids.forEach(async (id) => {
       const pillars = await pillar.findByIds([id]);
       console.log('down pillars', pillars);
-      if (pillar.length > 0) {
+      if (pillars.length > 0) {
         try {
-          await pillarControl.up({ host: pillar[0].ip, port: pillar[0].port });
+          await pillarControl.up({
+            host: pillars[0].ip,
+            port: pillars[0].port,
+          });
         } catch (e) {
           pillar.update(id, { status: 0 });
         }
