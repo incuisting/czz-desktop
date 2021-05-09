@@ -1,25 +1,28 @@
 import type { FC } from 'react';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import styles from './index.less';
-import { Form, Input, Button, Upload } from 'antd';
+import { Form, Input, Button, Upload, message } from 'antd';
+import { useSetting } from '@/hooks';
+import { routeTo } from '@/utils';
 
 const Auth: FC = () => {
   const [form] = Form.useForm();
+  const { setLic } = useSetting();
   const [importVisible, setImportVisible] = useState(true);
   const handleOk = (values: { appId: string; license: { file: any } }) => {
     const { license, appId } = values;
     const {
       originFileObj: { path },
     } = license.file;
-    console.log({ appId, path });
+    const res = setLic(path, appId);
+    if (res) {
+      routeTo('/home');
+    } else {
+      message.error('验证失败');
+      form.resetFields();
+      setImportVisible(true);
+    }
   };
-  // useEffect(() => {
-  //   const lic = form.getFieldValue('license');
-  //   console.log(lic);
-  //   if (lic?.fileList.length) {
-  //     setImportVisible(false);
-  //   }
-  // }, [form]);
   return (
     <div className={styles.container}>
       <div className={styles.title}>证书导入</div>

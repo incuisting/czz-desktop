@@ -12,5 +12,5 @@ export class Setting {
   appId?: string;
 
   @Column()
-  expireDate?: string;
+  expireDate?: number;
 }
