@@ -2345,6 +2345,27 @@
   resolved "https://registry.yarnpkg.com/@types/electron-devtools-installer/-/electron-devtools-installer-2.2.0.tgz#32ee4ebbe99b3daf9847a6d2097dc00b5de94f10"
   integrity sha512-HJNxpaOXuykCK4rQ6FOMxAA0NLFYsf7FiPFGmab0iQmtVBHSAfxzy3MRFpLTTDDWbV0yD2YsHOQvdu8yCqtCfw==
 
+"@types/eslint-scope@^3.7.0":
+  version "3.7.0"
+  resolved "https://registry.npm.taobao.org/@types/eslint-scope/download/@types/eslint-scope-3.7.0.tgz?cache=0&sync_timestamp=1613378608754&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40types%2Feslint-scope%2Fdownload%2F%40types%2Feslint-scope-3.7.0.tgz#4792816e31119ebd506902a482caec4951fabd86"
+  integrity sha1-R5KBbjERnr1QaQKkgsrsSVH6vYY=
+  dependencies:
+    "@types/eslint" "*"
+    "@types/estree" "*"
+
+"@types/eslint@*":
+  version "7.2.10"
+  resolved "https://registry.npm.taobao.org/@types/eslint/download/@types/eslint-7.2.10.tgz?cache=0&sync_timestamp=1618430350991&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40types%2Feslint%2Fdownload%2F%40types%2Feslint-7.2.10.tgz#4b7a9368d46c0f8cd5408c23288a59aa2394d917"
+  integrity sha1-S3qTaNRsD4zVQIwjKIpZqiOU2Rc=
+  dependencies:
+    "@types/estree" "*"
+    "@types/json-schema" "*"
+
+"@types/estree@*", "@types/estree@^0.0.47":
+  version "0.0.47"
+  resolved "https://registry.npm.taobao.org/@types/estree/download/@types/estree-0.0.47.tgz#d7a51db20f0650efec24cd04994f523d93172ed4"
+  integrity sha1-16Udsg8GUO/sJM0EmU9SPZMXLtQ=
+
 "@types/fs-extra@^9.0.7":
   version "9.0.11"
   resolved "https://registry.yarnpkg.com/@types/fs-extra/-/fs-extra-9.0.11.tgz#8cc99e103499eab9f347dbc6ca4e99fb8d2c2b87"
@@ -2440,7 +2461,7 @@
   resolved "https://registry.yarnpkg.com/@types/js-yaml/-/js-yaml-4.0.1.tgz#5544730b65a480b18ace6b6ce914e519cec2d43b"
   integrity sha512-xdOvNmXmrZqqPy3kuCQ+fz6wA0xU5pji9cd1nDrflWaAWtYLLGk5ykW0H6yg5TVyehHP1pfmuuSaZkhP+kspVA==
 
-"@types/json-schema@^7.0.3", "@types/json-schema@^7.0.5", "@types/json-schema@^7.0.6":
+"@types/json-schema@*", "@types/json-schema@^7.0.3", "@types/json-schema@^7.0.5", "@types/json-schema@^7.0.6":
   version "7.0.7"
   resolved "https://registry.yarnpkg.com/@types/json-schema/-/json-schema-7.0.7.tgz#98a993516c859eb0d5c4c8f098317a9ea68db9ad"
   integrity sha512-cxWFQVseBm6O9Gbw1IWb8r6OS4OhSt3hPZLkFApLjM8TEXROBuQGLAH2i2gZpcXdLBIrpXuTDhH7Vbm1iXmNGA==
@@ -3180,6 +3201,137 @@
   dependencies:
     "@umijs/deps" "3.4.11"
 
+"@webassemblyjs/ast@1.11.0":
+  version "1.11.0"
+  resolved "https://registry.nlark.com/@webassemblyjs/ast/download/@webassemblyjs/ast-1.11.0.tgz#a5aa679efdc9e51707a4207139da57920555961f"
+  integrity sha1-papnnv3J5RcHpCBxOdpXkgVVlh8=
+  dependencies:
+    "@webassemblyjs/helper-numbers" "1.11.0"
+    "@webassemblyjs/helper-wasm-bytecode" "1.11.0"
+
+"@webassemblyjs/floating-point-hex-parser@1.11.0":
+  version "1.11.0"
+  resolved "https://registry.nlark.com/@webassemblyjs/floating-point-hex-parser/download/@webassemblyjs/floating-point-hex-parser-1.11.0.tgz#34d62052f453cd43101d72eab4966a022587947c"
+  integrity sha1-NNYgUvRTzUMQHXLqtJZqAiWHlHw=
+
+"@webassemblyjs/helper-api-error@1.11.0":
+  version "1.11.0"
+  resolved "https://registry.nlark.com/@webassemblyjs/helper-api-error/download/@webassemblyjs/helper-api-error-1.11.0.tgz#aaea8fb3b923f4aaa9b512ff541b013ffb68d2d4"
+  integrity sha1-quqPs7kj9KqptRL/VBsBP/to0tQ=
+
+"@webassemblyjs/helper-buffer@1.11.0":
+  version "1.11.0"
+  resolved "https://registry.npm.taobao.org/@webassemblyjs/helper-buffer/download/@webassemblyjs/helper-buffer-1.11.0.tgz?cache=0&sync_timestamp=1610045496323&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40webassemblyjs%2Fhelper-buffer%2Fdownload%2F%40webassemblyjs%2Fhelper-buffer-1.11.0.tgz#d026c25d175e388a7dbda9694e91e743cbe9b642"
+  integrity sha1-0CbCXRdeOIp9valpTpHnQ8vptkI=
+
+"@webassemblyjs/helper-numbers@1.11.0":
+  version "1.11.0"
+  resolved "https://registry.npm.taobao.org/@webassemblyjs/helper-numbers/download/@webassemblyjs/helper-numbers-1.11.0.tgz#7ab04172d54e312cc6ea4286d7d9fa27c88cd4f9"
+  integrity sha1-erBBctVOMSzG6kKG19n6J8iM1Pk=
+  dependencies:
+    "@webassemblyjs/floating-point-hex-parser" "1.11.0"
+    "@webassemblyjs/helper-api-error" "1.11.0"
+    "@xtuc/long" "4.2.2"
+
+"@webassemblyjs/helper-wasm-bytecode@1.11.0":
+  version "1.11.0"
+  resolved "https://registry.npm.taobao.org/@webassemblyjs/helper-wasm-bytecode/download/@webassemblyjs/helper-wasm-bytecode-1.11.0.tgz#85fdcda4129902fe86f81abf7e7236953ec5a4e1"
+  integrity sha1-hf3NpBKZAv6G+Bq/fnI2lT7FpOE=
+
+"@webassemblyjs/helper-wasm-section@1.11.0":
+  version "1.11.0"
+  resolved "https://registry.npm.taobao.org/@webassemblyjs/helper-wasm-section/download/@webassemblyjs/helper-wasm-section-1.11.0.tgz?cache=0&sync_timestamp=1610045503299&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40webassemblyjs%2Fhelper-wasm-section%2Fdownload%2F%40webassemblyjs%2Fhelper-wasm-section-1.11.0.tgz#9ce2cc89300262509c801b4af113d1ca25c1a75b"
+  integrity sha1-nOLMiTACYlCcgBtK8RPRyiXBp1s=
+  dependencies:
+    "@webassemblyjs/ast" "1.11.0"
+    "@webassemblyjs/helper-buffer" "1.11.0"
+    "@webassemblyjs/helper-wasm-bytecode" "1.11.0"
+    "@webassemblyjs/wasm-gen" "1.11.0"
+
+"@webassemblyjs/ieee754@1.11.0":
+  version "1.11.0"
+  resolved "https://registry.nlark.com/@webassemblyjs/ieee754/download/@webassemblyjs/ieee754-1.11.0.tgz#46975d583f9828f5d094ac210e219441c4e6f5cf"
+  integrity sha1-RpddWD+YKPXQlKwhDiGUQcTm9c8=
+  dependencies:
+    "@xtuc/ieee754" "^1.2.0"
+
+"@webassemblyjs/leb128@1.11.0":
+  version "1.11.0"
+  resolved "https://registry.nlark.com/@webassemblyjs/leb128/download/@webassemblyjs/leb128-1.11.0.tgz#f7353de1df38aa201cba9fb88b43f41f75ff403b"
+  integrity sha1-9zU94d84qiAcup+4i0P0H3X/QDs=
+  dependencies:
+    "@xtuc/long" "4.2.2"
+
+"@webassemblyjs/utf8@1.11.0":
+  version "1.11.0"
+  resolved "https://registry.npm.taobao.org/@webassemblyjs/utf8/download/@webassemblyjs/utf8-1.11.0.tgz?cache=0&sync_timestamp=1610045498791&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40webassemblyjs%2Futf8%2Fdownload%2F%40webassemblyjs%2Futf8-1.11.0.tgz#86e48f959cf49e0e5091f069a709b862f5a2cadf"
+  integrity sha1-huSPlZz0ng5QkfBppwm4YvWiyt8=
+
+"@webassemblyjs/wasm-edit@1.11.0":
+  version "1.11.0"
+  resolved "https://registry.nlark.com/@webassemblyjs/wasm-edit/download/@webassemblyjs/wasm-edit-1.11.0.tgz#ee4a5c9f677046a210542ae63897094c2027cb78"
+  integrity sha1-7kpcn2dwRqIQVCrmOJcJTCAny3g=
+  dependencies:
+    "@webassemblyjs/ast" "1.11.0"
+    "@webassemblyjs/helper-buffer" "1.11.0"
+    "@webassemblyjs/helper-wasm-bytecode" "1.11.0"
+    "@webassemblyjs/helper-wasm-section" "1.11.0"
+    "@webassemblyjs/wasm-gen" "1.11.0"
+    "@webassemblyjs/wasm-opt" "1.11.0"
+    "@webassemblyjs/wasm-parser" "1.11.0"
+    "@webassemblyjs/wast-printer" "1.11.0"
+
+"@webassemblyjs/wasm-gen@1.11.0":
+  version "1.11.0"
+  resolved "https://registry.npm.taobao.org/@webassemblyjs/wasm-gen/download/@webassemblyjs/wasm-gen-1.11.0.tgz?cache=0&sync_timestamp=1610045502219&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40webassemblyjs%2Fwasm-gen%2Fdownload%2F%40webassemblyjs%2Fwasm-gen-1.11.0.tgz#3cdb35e70082d42a35166988dda64f24ceb97abe"
+  integrity sha1-PNs15wCC1Co1FmmI3aZPJM65er4=
+  dependencies:
+    "@webassemblyjs/ast" "1.11.0"
+    "@webassemblyjs/helper-wasm-bytecode" "1.11.0"
+    "@webassemblyjs/ieee754" "1.11.0"
+    "@webassemblyjs/leb128" "1.11.0"
+    "@webassemblyjs/utf8" "1.11.0"
+
+"@webassemblyjs/wasm-opt@1.11.0":
+  version "1.11.0"
+  resolved "https://registry.nlark.com/@webassemblyjs/wasm-opt/download/@webassemblyjs/wasm-opt-1.11.0.tgz#1638ae188137f4bb031f568a413cd24d32f92978"
+  integrity sha1-FjiuGIE39LsDH1aKQTzSTTL5KXg=
+  dependencies:
+    "@webassemblyjs/ast" "1.11.0"
+    "@webassemblyjs/helper-buffer" "1.11.0"
+    "@webassemblyjs/wasm-gen" "1.11.0"
+    "@webassemblyjs/wasm-parser" "1.11.0"
+
+"@webassemblyjs/wasm-parser@1.11.0":
+  version "1.11.0"
+  resolved "https://registry.nlark.com/@webassemblyjs/wasm-parser/download/@webassemblyjs/wasm-parser-1.11.0.tgz#3e680b8830d5b13d1ec86cc42f38f3d4a7700754"
+  integrity sha1-PmgLiDDVsT0eyGzELzjz1KdwB1Q=
+  dependencies:
+    "@webassemblyjs/ast" "1.11.0"
+    "@webassemblyjs/helper-api-error" "1.11.0"
+    "@webassemblyjs/helper-wasm-bytecode" "1.11.0"
+    "@webassemblyjs/ieee754" "1.11.0"
+    "@webassemblyjs/leb128" "1.11.0"
+    "@webassemblyjs/utf8" "1.11.0"
+
+"@webassemblyjs/wast-printer@1.11.0":
+  version "1.11.0"
+  resolved "https://registry.nlark.com/@webassemblyjs/wast-printer/download/@webassemblyjs/wast-printer-1.11.0.tgz#680d1f6a5365d6d401974a8e949e05474e1fab7e"
+  integrity sha1-aA0falNl1tQBl0qOlJ4FR04fq34=
+  dependencies:
+    "@webassemblyjs/ast" "1.11.0"
+    "@xtuc/long" "4.2.2"
+
+"@xtuc/ieee754@^1.2.0":
+  version "1.2.0"
+  resolved "https://registry.nlark.com/@xtuc/ieee754/download/@xtuc/ieee754-1.2.0.tgz#eef014a3145ae477a1cbc00cd1e552336dceb790"
+  integrity sha1-7vAUoxRa5Hehy8AM0eVSM23Ot5A=
+
+"@xtuc/long@4.2.2":
+  version "4.2.2"
+  resolved "https://registry.npm.taobao.org/@xtuc/long/download/@xtuc/long-4.2.2.tgz#d291c6a4e97989b5c61d9acf396ae4fe133a718d"
+  integrity sha1-0pHGpOl5ibXGHZrPOWrk/hM6cY0=
+
 JSONStream@^1.0.4:
   version "1.3.5"
   resolved "https://registry.yarnpkg.com/JSONStream/-/JSONStream-1.3.5.tgz#3208c1f08d3a4d99261ab64f92302bc15e111ca0"
@@ -3265,6 +3417,11 @@ acorn@^8.1.0:
   version "8.2.1"
   resolved "https://registry.yarnpkg.com/acorn/-/acorn-8.2.1.tgz#0d36af126fb6755095879c1dc6fd7edf7d60a5fb"
   integrity sha512-z716cpm5TX4uzOzILx8PavOE6C6DKshHDw1aQN52M/yNSqE9s5O8SMfyhCCfCJ3HmTL0NkVOi+8a/55T7YB3bg==
+
+acorn@^8.2.1:
+  version "8.2.4"
+  resolved "https://registry.nlark.com/acorn/download/acorn-8.2.4.tgz?cache=0&sync_timestamp=1620134123724&other_urls=https%3A%2F%2Fregistry.nlark.com%2Facorn%2Fdownload%2Facorn-8.2.4.tgz#caba24b08185c3b56e3168e97d15ed17f4d31fd0"
+  integrity sha1-yroksIGFw7VuMWjpfRXtF/TTH9A=
 
 add-dom-event-listener@^1.1.0:
   version "1.1.0"
@@ -3762,7 +3919,7 @@ asn1.js@^5.2.0:
     minimalistic-assert "^1.0.0"
     safer-buffer "^2.1.0"
 
-asn1@~0.2.3:
+asn1@^0.2.4, asn1@~0.2.3:
   version "0.2.4"
   resolved "https://registry.yarnpkg.com/asn1/-/asn1-0.2.4.tgz#8d2475dfab553bb33e77b54e59e880bb8ce23136"
   integrity sha512-jxwzQpLQjSmWXgwaCZE9Nz+glAG01yF1QnWgbhGwHI5A6FRIEY6IVqtHhIepHqI7/kyEyQEagBC5mBEFlIYvdg==
@@ -4823,6 +4980,11 @@ chownr@^2.0.0:
   resolved "https://registry.yarnpkg.com/chownr/-/chownr-2.0.0.tgz#15bfbe53d2eab4cf70f18a8cd68ebe5b3cb1dece"
   integrity sha512-bIomtDF5KGpdogkLd9VspvFzk9KfpyyGlS8YFVZl7TGPBHL5snIOnxeshwVgPteQ9b4Eydl+pVbIyE1DcvCWgQ==
 
+chrome-trace-event@^1.0.2:
+  version "1.0.3"
+  resolved "https://registry.nlark.com/chrome-trace-event/download/chrome-trace-event-1.0.3.tgz#1015eced4741e15d06664a957dbbf50d041e26ac"
+  integrity sha1-EBXs7UdB4V0GZkqVfbv1DQQeJqw=
+
 chromium-pickle-js@^0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/chromium-pickle-js/-/chromium-pickle-js-0.2.0.tgz#04a106672c18b085ab774d983dfa3ea138f22205"
@@ -5646,6 +5808,11 @@ crypto-browserify@^3.11.0:
     public-encrypt "^4.0.0"
     randombytes "^2.0.0"
     randomfill "^1.0.3"
+
+crypto-js@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.nlark.com/crypto-js/download/crypto-js-4.0.0.tgz#2904ab2677a9d042856a2ea2ef80de92e4a36dcc"
+  integrity sha1-KQSrJnep0EKFai6i74DekuSjbcw=
 
 crypto-random-string@^1.0.0:
   version "1.0.0"
@@ -6804,6 +6971,14 @@ enhanced-resolve@^4.0.0, enhanced-resolve@^4.1.1:
     memory-fs "^0.5.0"
     tapable "^1.0.0"
 
+enhanced-resolve@^5.8.0:
+  version "5.8.0"
+  resolved "https://registry.nlark.com/enhanced-resolve/download/enhanced-resolve-5.8.0.tgz#d9deae58f9d3773b6a111a5a46831da5be5c9ac0"
+  integrity sha1-2d6uWPnTdztqERpaRoMdpb5cmsA=
+  dependencies:
+    graceful-fs "^4.2.4"
+    tapable "^2.2.0"
+
 enquirer@^2.3.5, enquirer@^2.3.6:
   version "2.3.6"
   resolved "https://registry.yarnpkg.com/enquirer/-/enquirer-2.3.6.tgz#2a7fe5dd634a1e4125a975ec994ff5456dc3734d"
@@ -6879,6 +7054,11 @@ es-abstract@^1.18.0-next.1, es-abstract@^1.18.0-next.2:
     string.prototype.trimend "^1.0.4"
     string.prototype.trimstart "^1.0.4"
     unbox-primitive "^1.0.0"
+
+es-module-lexer@^0.4.0:
+  version "0.4.1"
+  resolved "https://registry.npm.taobao.org/es-module-lexer/download/es-module-lexer-0.4.1.tgz#dda8c6a14d8f340a24e34331e0fab0cb50438e0e"
+  integrity sha1-3ajGoU2PNAok40Mx4Pqwy1BDjg4=
 
 es-to-primitive@^1.2.1:
   version "1.2.1"
@@ -7307,7 +7487,7 @@ eventemitter3@^4.0.0:
   resolved "https://registry.yarnpkg.com/eventemitter3/-/eventemitter3-4.0.7.tgz#2de9b68f6528d5644ef5c59526a1b4a07306169f"
   integrity sha512-8guHBZCwKnFhYdHr2ysuRWErTwhoN2X8XELRlrRwpmfeY2jjuUN4taQMsULKUVo1K4DvZl+0pgfyoysHxvmvEw==
 
-events@^3.0.0:
+events@^3.0.0, events@^3.2.0:
   version "3.3.0"
   resolved "https://registry.yarnpkg.com/events/-/events-3.3.0.tgz#31a95ad0a924e2d2c419a813aeb2c4e878ea7400"
   integrity sha512-mQw+2fkQbALzQ7V0MY0IqdnXNOeTtP4r0lN9z7AAawCXgqea7bDii20AYrIBrFd/Hx0M2Ocz6S111CaFkUcb0Q==
@@ -8134,6 +8314,11 @@ glob-to-regexp@^0.3.0:
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/glob-to-regexp/-/glob-to-regexp-0.3.0.tgz#8c5a1494d2066c570cc3bfe4496175acc4d502ab"
   integrity sha1-jFoUlNIGbFcMw7/kSWF1rMTVAqs=
+
+glob-to-regexp@^0.4.1:
+  version "0.4.1"
+  resolved "https://registry.nlark.com/glob-to-regexp/download/glob-to-regexp-0.4.1.tgz#c75297087c851b9a578bd217dd59a92f59fe546e"
+  integrity sha1-x1KXCHyFG5pXi9IX3VmpL1n+VG4=
 
 glob@^7.0.0, glob@^7.0.3, glob@^7.1.1, glob@^7.1.2, glob@^7.1.3, glob@^7.1.4, glob@^7.1.6:
   version "7.1.6"
@@ -10691,7 +10876,7 @@ json-buffer@3.0.0:
   resolved "https://registry.yarnpkg.com/json-buffer/-/json-buffer-3.0.0.tgz#5b1f397afc75d677bde8bcfc0e47e1f9a3d9a898"
   integrity sha1-Wx85evx11ne96Lz8Dkfh+aPZqJg=
 
-json-parse-better-errors@^1.0.1:
+json-parse-better-errors@^1.0.1, json-parse-better-errors@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/json-parse-better-errors/-/json-parse-better-errors-1.0.2.tgz#bb867cfb3450e69107c131d1c514bab3dc8bcaa9"
   integrity sha512-mrqyZKfX5EhL7hvqcV6WG1yYjnjeuYDzDhhcAAUrq8Po85NBQBJP+ZDUT75qZQ98IkUoBqdkExkukOU7Ts2wrw==
@@ -11130,6 +11315,11 @@ load-json-file@^4.0.0:
     parse-json "^4.0.0"
     pify "^3.0.0"
     strip-bom "^3.0.0"
+
+loader-runner@^4.2.0:
+  version "4.2.0"
+  resolved "https://registry.nlark.com/loader-runner/download/loader-runner-4.2.0.tgz#d7022380d66d14c5fb1d496b89864ebcfd478384"
+  integrity sha1-1wIjgNZtFMX7HUlriYZOvP1Hg4Q=
 
 loader-utils@^1.0.2, loader-utils@^1.1.0, loader-utils@^1.2.3, loader-utils@^1.4.0:
   version "1.4.0"
@@ -12081,7 +12271,7 @@ negotiator@0.6.2:
   resolved "https://registry.yarnpkg.com/negotiator/-/negotiator-0.6.2.tgz#feacf7ccf525a77ae9634436a64883ffeca346fb"
   integrity sha512-hZXc7K2e+PgeI1eDBe/10Ard4ekbfrrqG8Ep+8Jmf4JID2bNg7NvCPOZN+kfF574pFQI7mum2AUqDidoKqcTOw==
 
-neo-async@^2.5.0, neo-async@^2.6.0:
+neo-async@^2.5.0, neo-async@^2.6.0, neo-async@^2.6.2:
   version "2.6.2"
   resolved "https://registry.yarnpkg.com/neo-async/-/neo-async-2.6.2.tgz#b4aafb93e3aeb2d8174ca53cf163ab7d7308305f"
   integrity sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==
@@ -12288,6 +12478,13 @@ node-releases@^1.1.71:
   version "1.1.71"
   resolved "https://registry.yarnpkg.com/node-releases/-/node-releases-1.1.71.tgz#cb1334b179896b1c89ecfdd4b725fb7bbdfc7dbb"
   integrity sha512-zR6HoT6LrLCRBwukmrVbHv0EpEQjksO6GmFcZQQuCAy139BEsoVKPYnf3jongYW83fAa1torLGYwxxky/p28sg==
+
+node-rsa@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.npm.taobao.org/node-rsa/download/node-rsa-1.1.1.tgz#efd9ad382097782f506153398496f79e4464434d"
+  integrity sha1-79mtOCCXeC9QYVM5hJb3nkRkQ00=
+  dependencies:
+    asn1 "^0.2.4"
 
 noop-logger@^0.1.1:
   version "0.1.1"
@@ -12860,7 +13057,7 @@ p-limit@^2.0.0, p-limit@^2.2.0, p-limit@^2.3.0:
   dependencies:
     p-try "^2.0.0"
 
-p-limit@^3.0.2:
+p-limit@^3.0.2, p-limit@^3.1.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/p-limit/-/p-limit-3.1.0.tgz#e1daccbe78d0d1388ca18c64fea38e3e57e3706b"
   integrity sha512-TYOanM3wGwNGsZN2cVTYPArw454xnXj5qmWF1bEoAc4+cU/ol7GVh7odevjp1FNHduHc3KZMcFduxU5Xc6uJRQ==
@@ -16092,6 +16289,13 @@ serialize-javascript@^4.0.0:
   dependencies:
     randombytes "^2.1.0"
 
+serialize-javascript@^5.0.1:
+  version "5.0.1"
+  resolved "https://registry.npm.taobao.org/serialize-javascript/download/serialize-javascript-5.0.1.tgz#7886ec848049a462467a97d3d918ebb2aaf934f4"
+  integrity sha1-eIbshIBJpGJGepfT2Rjrsqr5NPQ=
+  dependencies:
+    randombytes "^2.1.0"
+
 serve-index@^1.9.1:
   version "1.9.1"
   resolved "https://registry.yarnpkg.com/serve-index/-/serve-index-1.9.1.tgz#d3768d69b1e7d82e5ce050fff5b453bea12a9239"
@@ -16394,7 +16598,7 @@ sort-keys@^1.0.0:
   dependencies:
     is-plain-obj "^1.0.0"
 
-source-list-map@^2.0.0:
+source-list-map@^2.0.0, source-list-map@^2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/source-list-map/-/source-list-map-2.0.1.tgz#3993bd873bfc48479cca9ea3a547835c7c154b34"
   integrity sha512-qnQ7gVMxGNxsiL4lEuJwe/To8UnK7fAnmbGEEH8RpLouuKbeEm0lhbQVFIrNSuB+G7tVrAlVsZgETT5nljf+Iw==
@@ -17187,6 +17391,11 @@ tapable@^1.0.0, tapable@^1.1.3:
   resolved "https://registry.yarnpkg.com/tapable/-/tapable-1.1.3.tgz#a1fccc06b58db61fd7a45da2da44f5f3a3e67ba2"
   integrity sha512-4WK/bYZmj8xLr+HUCODHGF1ZFzsYffasLUgEiMBY4fgtltdO6B4WJtlSbPaDTLpYTcGVwM2qLnFTICEcNxs3kA==
 
+tapable@^2.1.1, tapable@^2.2.0:
+  version "2.2.0"
+  resolved "https://registry.npm.taobao.org/tapable/download/tapable-2.2.0.tgz?cache=0&sync_timestamp=1607088859616&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Ftapable%2Fdownload%2Ftapable-2.2.0.tgz#5c373d281d9c672848213d0e037d1c4165ab426b"
+  integrity sha1-XDc9KB2cZyhIIT0OA30cQWWrQms=
+
 tar-fs@^2.0.0:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/tar-fs/-/tar-fs-2.1.1.tgz#489a15ab85f1f0befabb370b7de4f9eb5cbe8784"
@@ -17303,6 +17512,18 @@ terser-webpack-plugin@^2.3.5:
     terser "^4.6.12"
     webpack-sources "^1.4.3"
 
+terser-webpack-plugin@^5.1.1:
+  version "5.1.1"
+  resolved "https://registry.npm.taobao.org/terser-webpack-plugin/download/terser-webpack-plugin-5.1.1.tgz?cache=0&sync_timestamp=1610194159534&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fterser-webpack-plugin%2Fdownload%2Fterser-webpack-plugin-5.1.1.tgz#7effadee06f7ecfa093dbbd3e9ab23f5f3ed8673"
+  integrity sha1-fv+t7gb37PoJPbvT6asj9fPthnM=
+  dependencies:
+    jest-worker "^26.6.2"
+    p-limit "^3.1.0"
+    schema-utils "^3.0.0"
+    serialize-javascript "^5.0.1"
+    source-map "^0.6.1"
+    terser "^5.5.1"
+
 terser@5.6.0:
   version "5.6.0"
   resolved "https://registry.yarnpkg.com/terser/-/terser-5.6.0.tgz#138cdf21c5e3100b1b3ddfddf720962f88badcd2"
@@ -17320,6 +17541,15 @@ terser@^4.6.12, terser@^4.6.3:
     commander "^2.20.0"
     source-map "~0.6.1"
     source-map-support "~0.5.12"
+
+terser@^5.5.1:
+  version "5.7.0"
+  resolved "https://registry.nlark.com/terser/download/terser-5.7.0.tgz#a761eeec206bc87b605ab13029876ead938ae693"
+  integrity sha1-p2Hu7CBryHtgWrEwKYdurZOK5pM=
+  dependencies:
+    commander "^2.20.0"
+    source-map "~0.7.2"
+    source-map-support "~0.5.19"
 
 test-exclude@^5.2.3:
   version "5.2.3"
@@ -18428,6 +18658,14 @@ warning@^4.0.1, warning@^4.0.3:
   dependencies:
     loose-envify "^1.0.0"
 
+watchpack@^2.0.0:
+  version "2.1.1"
+  resolved "https://registry.npm.taobao.org/watchpack/download/watchpack-2.1.1.tgz#e99630550fca07df9f90a06056987baa40a689c7"
+  integrity sha1-6ZYwVQ/KB9+fkKBgVph7qkCmicc=
+  dependencies:
+    glob-to-regexp "^0.4.1"
+    graceful-fs "^4.1.2"
+
 wbuf@^1.1.0, wbuf@^1.7.3:
   version "1.7.3"
   resolved "https://registry.yarnpkg.com/wbuf/-/wbuf-1.7.3.tgz#c1d8d149316d3ea852848895cb6a0bfe887b87df"
@@ -18564,6 +18802,43 @@ webpack-sources@^1.1.0, webpack-sources@^1.4.3:
   dependencies:
     source-list-map "^2.0.0"
     source-map "~0.6.1"
+
+webpack-sources@^2.1.1:
+  version "2.2.0"
+  resolved "https://registry.npm.taobao.org/webpack-sources/download/webpack-sources-2.2.0.tgz?cache=0&sync_timestamp=1603965313080&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fwebpack-sources%2Fdownload%2Fwebpack-sources-2.2.0.tgz#058926f39e3d443193b6c31547229806ffd02bac"
+  integrity sha1-BYkm8549RDGTtsMVRyKYBv/QK6w=
+  dependencies:
+    source-list-map "^2.0.1"
+    source-map "^0.6.1"
+
+webpack@^5.36.2:
+  version "5.36.2"
+  resolved "https://registry.nlark.com/webpack/download/webpack-5.36.2.tgz#6ef1fb2453ad52faa61e78d486d353d07cca8a0f"
+  integrity sha1-bvH7JFOtUvqmHnjUhtNT0HzKig8=
+  dependencies:
+    "@types/eslint-scope" "^3.7.0"
+    "@types/estree" "^0.0.47"
+    "@webassemblyjs/ast" "1.11.0"
+    "@webassemblyjs/wasm-edit" "1.11.0"
+    "@webassemblyjs/wasm-parser" "1.11.0"
+    acorn "^8.2.1"
+    browserslist "^4.14.5"
+    chrome-trace-event "^1.0.2"
+    enhanced-resolve "^5.8.0"
+    es-module-lexer "^0.4.0"
+    eslint-scope "^5.1.1"
+    events "^3.2.0"
+    glob-to-regexp "^0.4.1"
+    graceful-fs "^4.2.4"
+    json-parse-better-errors "^1.0.2"
+    loader-runner "^4.2.0"
+    mime-types "^2.1.27"
+    neo-async "^2.6.2"
+    schema-utils "^3.0.0"
+    tapable "^2.1.1"
+    terser-webpack-plugin "^5.1.1"
+    watchpack "^2.0.0"
+    webpack-sources "^2.1.1"
 
 websocket-driver@>=0.5.1, websocket-driver@^0.7.4:
   version "0.7.4"

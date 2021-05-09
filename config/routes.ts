@@ -13,6 +13,10 @@ const routes: IRoute[] = [
         path: '/database',
         component: '@/pages/database',
       },
+      {
+        path: '/auth',
+        component: '@/pages/auth',
+      },
     ],
   },
 ];

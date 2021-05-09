@@ -7,4 +7,10 @@ export class Setting {
 
   @Column('boolean', { default: false })
   isActive: boolean = false;
+
+  @Column()
+  appId?: string;
+
+  @Column()
+  expireDate?: string;
 }

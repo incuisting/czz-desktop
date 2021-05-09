@@ -1,5 +1,7 @@
 import type { FC } from 'react';
 import { useDatabase } from '@/hooks';
+import { routeTo } from '@/utils';
+import { useMount } from 'ahooks';
 
 // import styles from './BaseLayout.less';
 
@@ -9,11 +11,16 @@ const BaseLayout: FC = ({ children }) => {
   // const { theme, switchDarkMode } = darkModeService;
 
   const { setting } = useDatabase();
-  const isActive = async () => {
-    const active = await setting.getActive();
-    console.log(active);
+  const getActive = async () => {
+    const { isActive } = await setting.getActive();
+    if (!isActive) {
+      routeTo('/auth');
+    }
+    console.log(isActive);
   };
-  isActive();
+  useMount(() => {
+    getActive();
+  });
   return (
     <>
       {children}

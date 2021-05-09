@@ -18,11 +18,13 @@ export class SettingService {
     this.model.update(id, { isActive });
   }
 
-  public async getActive() {
-    const el = await this.model.findByIds([0]);
-
+  public async getActive(): Promise<Setting> {
     const all = await this.model.find();
+    if (all.length === 0) {
+      await this.model.insert({ isActive: false, appId: '', expireDate: '' });
+      return { isActive: false, appId: '', expireDate: '' };
+    }
     console.log(all);
-    // return el[0].isActive;
+    return all[0];
   }
 }
