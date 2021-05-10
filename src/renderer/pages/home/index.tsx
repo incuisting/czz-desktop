@@ -3,15 +3,16 @@ import { useState } from 'react';
 import { Button, Checkbox, Row, Card, Col } from 'antd';
 import { SettingOutlined } from '@ant-design/icons';
 
-import { useSelections, useInterval, useMount } from 'ahooks';
+import { useSelections, useInterval, useMount, useUnmount } from 'ahooks';
 
-import { useDatabase, usePillarControl } from '@/hooks';
+import { useDatabase, usePillarControl, useSetting } from '@/hooks';
 import BaseModal from './BaseModal';
 
 import styles from './index.less';
 
 const Home: FC = () => {
   const { pillar } = useDatabase();
+  const { checkLic, updateLastUseTime } = useSetting();
   const { up, down, updateAllStatus } = usePillarControl<number>();
   const [czzList, setCzz] = useState<Models.Pillar[]>([]);
   const [pillarDetail, setPillarDetail] = useState<Models.Pillar | null>(null);
@@ -30,8 +31,13 @@ const Home: FC = () => {
     setCzz(devices);
     setSelections(devices.map((el: { id: number }) => el.id));
   }
+
   useMount(() => {
     queryDB();
+    checkLic();
+  });
+  useUnmount(() => {
+    updateLastUseTime();
   });
   useInterval(() => {
     updateAllStatus();
