@@ -2,16 +2,23 @@
   @apply flex  flex-col justify-center items-center;
   width: 100%;
   height: 600px;
-  .title{
-    line-height: 3;
+  .title {
     font-size: 24px;
-
+    line-height: 3;
   }
   .formContent {
-    width: 300px;
+    width: 425px;
     height: 100px;
+    margin-top: 40px;
+  }
+  .appId {
+    .id {
+      margin-right: 8px;
+      margin-left: 8px;
+    }
   }
   .buttonGroup {
-    @apply flex justify-end w-72;
+    @apply flex justify-end;
+    width: 60%;
   }
 }

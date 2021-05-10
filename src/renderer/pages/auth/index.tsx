@@ -4,17 +4,19 @@ import styles from './index.less';
 import { Form, Input, Button, Upload, message } from 'antd';
 import { useSetting } from '@/hooks';
 import { routeTo } from '@/utils';
+import { useMount } from 'ahooks';
 
 const Auth: FC = () => {
   const [form] = Form.useForm();
-  const { setLic } = useSetting();
+  const { setLic, getAppId } = useSetting();
   const [importVisible, setImportVisible] = useState(true);
+  const [appid, setAppid] = useState('');
   const handleOk = (values: { appId: string; license: { file: any } }) => {
-    const { license, appId } = values;
+    const { license } = values;
     const {
       originFileObj: { path },
     } = license.file;
-    const res = setLic(path, appId);
+    const res = setLic(path, appid);
     if (res) {
       routeTo('/home');
     } else {
@@ -23,18 +25,18 @@ const Auth: FC = () => {
       setImportVisible(true);
     }
   };
+  useMount(async () => {
+    const id = await getAppId();
+    setAppid(id);
+  });
   return (
     <div className={styles.container}>
       <div className={styles.title}>证书导入</div>
+      <div className={styles.appId}>
+        <span>软件ID:</span>
+        <span className={styles.id}>{appid}</span>
+      </div>
       <Form form={form} onFinish={handleOk} className={styles.formContent}>
-        <Form.Item
-          name="appId"
-          label="流水号"
-          rules={[{ required: true, message: '请输入流水号' }]}
-        >
-          <Input maxLength={10} />
-        </Form.Item>
-
         <Form.Item
           name="license"
           label="证书"

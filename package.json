@@ -51,6 +51,7 @@
     ]
   },
   "dependencies": {
+    "address": "^1.1.2",
     "crc": "^3.8.0",
     "crypto-js": "^4.0.0",
     "electron-updater": "^4.3.8",

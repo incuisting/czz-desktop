@@ -13,4 +13,7 @@ export class Setting {
 
   @Column()
   expireDate?: number;
+
+  @Column()
+  lastUseTime?: number;
 }

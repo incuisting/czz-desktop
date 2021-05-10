@@ -7,10 +7,23 @@ export function useSetting() {
     if (!result) {
       return result;
     }
-    setting.setActive(true, result.notAfter);
+    setting.setActive({
+      isActive: true,
+      expireDate: result.notAfter,
+    });
     return true;
   };
 
   const getLic = () => {};
-  return { setLic, getLic };
+  const getAppId = async (): Promise<string> => {
+    let { appId } = await setting.getActive();
+    if (!appId) {
+      appId = await setting.createAppId();
+      setting.setActive({
+        appId,
+      });
+    }
+    return appId;
+  };
+  return { setLic, getLic, getAppId };
 }
