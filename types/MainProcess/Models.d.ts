@@ -12,6 +12,5 @@ declare namespace Models {
     isActive: boolean;
     appId: string;
     expireDate: number;
-    lastUseTime: number;
   };
 }

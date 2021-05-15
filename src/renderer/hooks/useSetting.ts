@@ -18,16 +18,13 @@ export function useSetting() {
 
   const checkLic = async () => {
     const settingInfo = await setting.getActive();
-    const { isActive, expireDate, lastUseTime, appId } = settingInfo;
+    const { isActive, expireDate, appId } = settingInfo;
     const currentAppId = await setting.createAppId();
     const currentMoment = moment().valueOf();
     if (!isActive) {
       routeTo('/auth');
     }
     if (currentMoment > expireDate) {
-      routeTo('/auth');
-    }
-    if (currentMoment < lastUseTime) {
       routeTo('/auth');
     }
     if (currentAppId !== appId) {
@@ -44,11 +41,5 @@ export function useSetting() {
     }
     return appId;
   };
-  const updateLastUseTime = () => {
-    const timeStamp = moment().valueOf();
-    setting.setActive({
-      lastUseTime: timeStamp,
-    });
-  };
-  return { setLic, checkLic, getAppId, updateLastUseTime };
+  return { setLic, checkLic, getAppId };
 }

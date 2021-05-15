@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { Button, Checkbox, Row, Card, Col } from 'antd';
 import { SettingOutlined } from '@ant-design/icons';
 
-import { useSelections, useInterval, useMount, useUnmount } from 'ahooks';
+import { useSelections, useInterval, useMount } from 'ahooks';
 
 import { useDatabase, usePillarControl, useSetting } from '@/hooks';
 import BaseModal from './BaseModal';
@@ -12,7 +12,7 @@ import styles from './index.less';
 
 const Home: FC = () => {
   const { pillar } = useDatabase();
-  const { checkLic, updateLastUseTime } = useSetting();
+  const { checkLic  } = useSetting();
   const { up, down, updateAllStatus } = usePillarControl<number>();
   const [czzList, setCzz] = useState<Models.Pillar[]>([]);
   const [pillarDetail, setPillarDetail] = useState<Models.Pillar | null>(null);
@@ -35,9 +35,6 @@ const Home: FC = () => {
   useMount(() => {
     queryDB();
     checkLic();
-  });
-  useUnmount(() => {
-    updateLastUseTime();
   });
   useInterval(() => {
     updateAllStatus();

@@ -29,7 +29,6 @@ export class SettingService {
       isActive?: boolean;
       expireDate?: number;
       appId?: string;
-      lastUseTime?: number;
     },
     id: number = 1,
   ) {
@@ -43,13 +42,11 @@ export class SettingService {
         isActive: false,
         appId: '',
         expireDate: 0,
-        lastUseTime: 0,
       });
       return {
         isActive: false,
         appId: '',
         expireDate: 0,
-        lastUseTime: 0,
       };
     }
     return all[0];
