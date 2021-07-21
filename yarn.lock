@@ -1479,6 +1479,11 @@
   resolved "https://registry.npm.taobao.org/@bcoe/v8-coverage/download/@bcoe/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha1-daLotRy3WKdVPWgEpZMteqznXDk=
 
+"@bloomberg/record-tuple-polyfill@0.0.3":
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/@bloomberg/record-tuple-polyfill/-/record-tuple-polyfill-0.0.3.tgz#0b03d18b88a30894caab14abd669b1cbbf47b843"
+  integrity sha512-sBnCqW0nqofE47mxFnw+lvx6kzsQstwaQMVkh66qm/A6IlsnH7WsyGuVXTou8RF2wL4W7ybOoHPvP2WgIo6rhQ==
+
 "@cnakazawa/watch@^1.0.3":
   version "1.0.4"
   resolved "https://registry.npm.taobao.org/@cnakazawa/watch/download/@cnakazawa/watch-1.0.4.tgz#f864ae85004d0fcab6f50be9141c4da368d1656a"
@@ -3566,12 +3571,24 @@
   resolved "https://registry.yarnpkg.com/@umijs/babel-plugin-auto-css-modules/-/babel-plugin-auto-css-modules-3.3.9.tgz#acdf5589163b6b7c041c89257b1ba7d3a02292c7"
   integrity sha512-vd9/oFJS8UhsyQJyLOFYXfm75hOsvJQV8/oczmcrBamHe2OfTssx9mTd94NPvTlCnJyahRYTc02L7YprCoyBRw==
 
+"@umijs/babel-plugin-auto-css-modules@3.4.25":
+  version "3.4.25"
+  resolved "https://registry.yarnpkg.com/@umijs/babel-plugin-auto-css-modules/-/babel-plugin-auto-css-modules-3.4.25.tgz#7ce597a1aa7fb7a8e53635699100b82db78b5a32"
+  integrity sha512-rlvePRMy2ak99/MeUCgjSYB9a6YmeG0gJqyQ1MVNJ6biDMkegKcI67zuIY+cNfr+2sIQ4gwj5oO0vGYS/THv5g==
+
 "@umijs/babel-plugin-import-to-await-require@3.3.9":
   version "3.3.9"
   resolved "https://registry.yarnpkg.com/@umijs/babel-plugin-import-to-await-require/-/babel-plugin-import-to-await-require-3.3.9.tgz#2cc9fe764b1743d5281b29989ce2262a3e9a4ab5"
   integrity sha512-5p1g1hbNg3ZZ77j6ScoCW6cHzDR3qnQsoe4D1x5ZNwmfpFKa0QtlAPDOZ5ETW1XzerPl6CNde+95iMKBYlOA3Q==
   dependencies:
     "@babel/types" "7.12.6"
+
+"@umijs/babel-plugin-import-to-await-require@3.4.25":
+  version "3.4.25"
+  resolved "https://registry.yarnpkg.com/@umijs/babel-plugin-import-to-await-require/-/babel-plugin-import-to-await-require-3.4.25.tgz#8bc8347d36d1107605dcbf5b6f41498aa062206c"
+  integrity sha512-Ca8OP6yEcaq1VnUy6GMLxPCVFFchT+dTgNpQmR6MMzDactXSM2gP/+BAny0tJm9Qr9LjyYJ9sPkZAMDsSwXFKA==
+  dependencies:
+    "@umijs/utils" "3.4.25"
 
 "@umijs/babel-plugin-lock-core-js-3@3.3.9":
   version "3.3.9"
@@ -3580,6 +3597,21 @@
   dependencies:
     "@umijs/utils" "3.3.9"
     core-js "3.6.5"
+
+"@umijs/babel-plugin-lock-core-js-3@3.4.25":
+  version "3.4.25"
+  resolved "https://registry.yarnpkg.com/@umijs/babel-plugin-lock-core-js-3/-/babel-plugin-lock-core-js-3-3.4.25.tgz#2efce22ad4a970dc81f32ef2b49f6b46da0e0a4a"
+  integrity sha512-/+zUcwZiZ8eq/wUzp886UkXGqiI9lxLub2HTNW09rnwCHTUd9BM/ccInXrPD/zsQ1xA+hYcQiWftBvhsV19fHQ==
+  dependencies:
+    "@umijs/utils" "3.4.25"
+    core-js "3.6.5"
+
+"@umijs/babel-plugin-no-anonymous-default-export@3.4.25":
+  version "3.4.25"
+  resolved "https://registry.yarnpkg.com/@umijs/babel-plugin-no-anonymous-default-export/-/babel-plugin-no-anonymous-default-export-3.4.25.tgz#4c47af75656b98bc84659bf7a4cc869645d95c0f"
+  integrity sha512-znQAVkOu+3z343ZfprR4Kz+0grd90CJd21dHFnpa6mo5P4H2JBrrHCWS2GN0lGPuyW9r9zVboFBTFaXBnP0trw==
+  dependencies:
+    "@umijs/utils" "3.4.25"
 
 "@umijs/babel-preset-umi@3.3.9":
   version "3.3.9"
@@ -3612,6 +3644,17 @@
     babel-plugin-react-require "3.1.3"
     babel-plugin-transform-react-remove-prop-types "0.4.24"
     babel-plugin-transform-typescript-metadata "0.3.1"
+
+"@umijs/babel-preset-umi@3.4.25":
+  version "3.4.25"
+  resolved "https://registry.yarnpkg.com/@umijs/babel-preset-umi/-/babel-preset-umi-3.4.25.tgz#0097a39b5abd5d0909483f72a1799298873da195"
+  integrity sha512-ml9K1oWtse9q42GddbW6ijh49uEW8WKqbiKhYP7wquNijmtWx5ZnQKF2VqRTkuzq3+kY50B9DtVSqoq+/YbjQg==
+  dependencies:
+    "@babel/runtime" "7.12.5"
+    "@umijs/babel-plugin-auto-css-modules" "3.4.25"
+    "@umijs/babel-plugin-import-to-await-require" "3.4.25"
+    "@umijs/babel-plugin-lock-core-js-3" "3.4.25"
+    "@umijs/babel-plugin-no-anonymous-default-export" "3.4.25"
 
 "@umijs/bundler-utils@3.3.9":
   version "3.3.9"
@@ -3695,6 +3738,17 @@
     set-value "3.0.2"
     tapable "1.1.3"
 
+"@umijs/deps@3.4.25":
+  version "3.4.25"
+  resolved "https://registry.yarnpkg.com/@umijs/deps/-/deps-3.4.25.tgz#ba7c01f60cf5af13462373c060c679f28687a6b2"
+  integrity sha512-lMZsuRKq9hlLEBZxTje/DHu2ONRr+OIpfV1gaqH/IwrDZ5W9n3fLp/7L1potKq8xLV4GacSWBy40HRrzsulNog==
+  dependencies:
+    "@bloomberg/record-tuple-polyfill" "0.0.3"
+    chokidar "3.5.1"
+    clipboardy "2.3.0"
+    jest-worker "24.9.0"
+    prettier "2.2.1"
+
 "@umijs/error-code-map@^1.0.1":
   version "1.0.1"
   resolved "https://registry.npm.taobao.org/@umijs/error-code-map/download/@umijs/error-code-map-1.0.1.tgz#2a2dd7b4bcd11869e968264ff3dabacfabe8b874"
@@ -3741,66 +3795,66 @@
     stylelint-order "^4.0.0"
     typescript "^4.0.2"
 
-"@umijs/plugin-access@2.3.3":
-  version "2.3.3"
-  resolved "https://registry.npm.taobao.org/@umijs/plugin-access/download/@umijs/plugin-access-2.3.3.tgz?cache=0&sync_timestamp=1610339700617&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40umijs%2Fplugin-access%2Fdownload%2F%40umijs%2Fplugin-access-2.3.3.tgz#3206ef8dd0707dbbd35fa0e2acf0fc964b807e3d"
-  integrity sha1-MgbvjdBwfbvTX6DirPD8lkuAfj0=
+"@umijs/plugin-access@2.4.2":
+  version "2.4.2"
+  resolved "https://registry.yarnpkg.com/@umijs/plugin-access/-/plugin-access-2.4.2.tgz#0bc4b63d9dc0a2a04a303a352556721c891a8b30"
+  integrity sha512-cP00Uh2kDEAgvQ/PwiR9d09js5x0k1PDvHqXN6B/kFt/Tz3u2C4yPy71d2C7KLWDIm1HTsWcoQtIqvJZwLmLJQ==
 
 "@umijs/plugin-analytics@0.2.2":
   version "0.2.2"
   resolved "https://registry.npm.taobao.org/@umijs/plugin-analytics/download/@umijs/plugin-analytics-0.2.2.tgz#575fd231d4327ea13413217aa1b5fc6bdd89465e"
   integrity sha1-V1/SMdQyfqE0EyF6obX8a92JRl4=
 
-"@umijs/plugin-antd@0.9.1":
-  version "0.9.1"
-  resolved "https://registry.npm.taobao.org/@umijs/plugin-antd/download/@umijs/plugin-antd-0.9.1.tgz#a5a146a80879565b59cc2dd33d7b158685cf2bb2"
-  integrity sha1-paFGqAh5VltZzC3TPXsVhoXPK7I=
+"@umijs/plugin-antd@0.10.0":
+  version "0.10.0"
+  resolved "https://registry.yarnpkg.com/@umijs/plugin-antd/-/plugin-antd-0.10.0.tgz#affc422825771150750d2aca042c26dbff11b8de"
+  integrity sha512-qXhJVR0b9MeeA5IgjysYqmXFpTJvF1IEiJLjD1/DO1qbIc6JNv1I52Y10EC3KYkB0TECQkTzDInAZ2iczQSHQA==
   dependencies:
     antd "^4.1.3"
     antd-mobile "^2.3.1"
 
-"@umijs/plugin-crossorigin@1.2.0":
-  version "1.2.0"
-  resolved "https://registry.npm.taobao.org/@umijs/plugin-crossorigin/download/@umijs/plugin-crossorigin-1.2.0.tgz#bf9ec0ccd76cf04e178c63fda813b06e93280131"
-  integrity sha1-v57AzNds8E4XjGP9qBOwbpMoATE=
+"@umijs/plugin-crossorigin@1.2.1":
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/@umijs/plugin-crossorigin/-/plugin-crossorigin-1.2.1.tgz#c210375392dc020ad201b9b0ab5a49234e24e6d3"
+  integrity sha512-4oXNFBLOCH1FHTgFi7EDmlcjjYMthOQlrTT+mSbNeMzvl0P/WKldSJsYAUXUTg+I7vlbb5bNby4dpHKK37JcbQ==
 
-"@umijs/plugin-dva@0.10.0":
-  version "0.10.0"
-  resolved "https://registry.npm.taobao.org/@umijs/plugin-dva/download/@umijs/plugin-dva-0.10.0.tgz?cache=0&sync_timestamp=1610536406573&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40umijs%2Fplugin-dva%2Fdownload%2F%40umijs%2Fplugin-dva-0.10.0.tgz#e9a8ada937c3fe7403ab9608fa1b8b0ebed522ac"
-  integrity sha1-6aitqTfD/nQDq5YI+huLDr7VIqw=
+"@umijs/plugin-dva@0.13.0":
+  version "0.13.0"
+  resolved "https://registry.yarnpkg.com/@umijs/plugin-dva/-/plugin-dva-0.13.0.tgz#aa8cf9982cfb5b8d5fcb59c3915cca866dc37dab"
+  integrity sha512-cpGq8vzN8AmyWxexWLQ+WGqfT0WMCiryvU5EcNGbx1/Ub9aICUfPBpB46cxJrxjDCjUzuVslRNb2pdgI0xXUXg==
   dependencies:
     babel-plugin-dva-hmr "^0.4.2"
     dva "^2.6.0-beta.20"
     dva-immer "^0.5.2"
     dva-loading "^3.0.20"
 
-"@umijs/plugin-helmet@1.1.1":
-  version "1.1.1"
-  resolved "https://registry.npm.taobao.org/@umijs/plugin-helmet/download/@umijs/plugin-helmet-1.1.1.tgz#841aea37b5076b51c2f332659bf9c671cf63794d"
-  integrity sha1-hBrqN7UHa1HC8zJlm/nGcc9jeU0=
+"@umijs/plugin-helmet@1.1.3":
+  version "1.1.3"
+  resolved "https://registry.yarnpkg.com/@umijs/plugin-helmet/-/plugin-helmet-1.1.3.tgz#d66e257fa90d6c20f56b6d744a746d3f3e40a880"
+  integrity sha512-X4GRFlvOb8DxMDm1vExfpWOvxl6bp0oZz114DyhwnMSriJ8RcHAigTjtVJHYxJpKv7P6KayN3n13J4w/XZGWMg==
   dependencies:
     "@types/react-helmet" "^6.1.0"
     react-helmet "^6.1.0"
 
-"@umijs/plugin-initial-state@2.3.0":
-  version "2.3.0"
-  resolved "https://registry.npm.taobao.org/@umijs/plugin-initial-state/download/@umijs/plugin-initial-state-2.3.0.tgz#b0afc6cf8446bddb0ed2c2fa4271c4cff993d688"
-  integrity sha1-sK/Gz4RGvdsO0sL6QnHEz/mT1og=
+"@umijs/plugin-initial-state@2.4.0":
+  version "2.4.0"
+  resolved "https://registry.yarnpkg.com/@umijs/plugin-initial-state/-/plugin-initial-state-2.4.0.tgz#a6759082f2bdd0aeb278ae95b2e4b562a061aed6"
+  integrity sha512-UHH5fTL9skm4771R3xvWCrjd5xiQ7OdJ83G0P1YZLhuNbh0cAFVT8SPTU8dA9o8TTAZ66IEq7axhWl1cGxVsXw==
 
-"@umijs/plugin-layout@0.13.5":
-  version "0.13.5"
-  resolved "https://registry.npm.taobao.org/@umijs/plugin-layout/download/@umijs/plugin-layout-0.13.5.tgz#f2cd8ebff855c7fd470f6a825210a12cc85f2078"
-  integrity sha1-8s2Ov/hVx/1HD2qCUhChLMhfIHg=
+"@umijs/plugin-layout@0.17.2":
+  version "0.17.2"
+  resolved "https://registry.yarnpkg.com/@umijs/plugin-layout/-/plugin-layout-0.17.2.tgz#e41a52600ff1f6dba778270e9d2a5a6cab02bd12"
+  integrity sha512-HtUl23P8+A2xtDQ9sRALSvIydeItrTG5ByO+geVzs602ME+eX9JpW2im7pe7eM39eXAP1IvkGP75pntHSJuFYw==
   dependencies:
     "@umijs/route-utils" "^1.0.7"
     antd "^4.1.2"
     lodash "^4.17.15"
     path-to-regexp "1.x"
 
-"@umijs/plugin-locale@0.10.9":
-  version "0.10.9"
-  resolved "https://registry.yarnpkg.com/@umijs/plugin-locale/-/plugin-locale-0.10.9.tgz#0995e508f531458f1745f09f79b4f81b83f7fa66"
-  integrity sha512-kokJ1YHx2OB/pD2oDcbQZXt1qpmO4+Z6sMxHGjCXHQepnvugNzcV04LwgWIN/6Ioewo5fvAX02wZyNHAkSBmOQ==
+"@umijs/plugin-locale@0.14.2":
+  version "0.14.2"
+  resolved "https://registry.yarnpkg.com/@umijs/plugin-locale/-/plugin-locale-0.14.2.tgz#f0db90fd521e346dc5765dee46b1416d0c560b32"
+  integrity sha512-/RdXQYNofN41/lU61YBcDo2vsxcIPWOFGVOGqC8aZ78FqCRdcNkqbHc5YQGd5Zy8m2GWudv7qTEdL7i5j1xYWQ==
   dependencies:
     "@ant-design/icons" "^4.1.0"
     "@formatjs/intl-pluralrules" "^1.5.0"
@@ -3810,27 +3864,27 @@
     react-intl "3.12.1"
     warning "^4.0.3"
 
-"@umijs/plugin-model@2.5.6":
-  version "2.5.6"
-  resolved "https://registry.npm.taobao.org/@umijs/plugin-model/download/@umijs/plugin-model-2.5.6.tgz#1eec24000d608375d0790fb6713a50d7ee7b5153"
-  integrity sha1-HuwkAA1gg3XQeQ+2cTpQ1+57UVM=
+"@umijs/plugin-model@2.6.1":
+  version "2.6.1"
+  resolved "https://registry.yarnpkg.com/@umijs/plugin-model/-/plugin-model-2.6.1.tgz#494be2449989baa08b0b382c09122ffa0e2374af"
+  integrity sha512-gu4HroKaGnqk848Iew0ojGY7vPAVmrVH7jhtAZHoHKQdpPZv6a20sukasmMmEBXXNflLrESeU+3JayeZUNuHeA==
   dependencies:
     fast-deep-equal "3.1.1"
 
-"@umijs/plugin-request@2.5.2":
-  version "2.5.2"
-  resolved "https://registry.npm.taobao.org/@umijs/plugin-request/download/@umijs/plugin-request-2.5.2.tgz#8fb20654b8b45f4b57a8c0f7829e128c47c0be71"
-  integrity sha1-j7IGVLi0X0tXqMD3gp4SjEfAvnE=
+"@umijs/plugin-request@2.7.0":
+  version "2.7.0"
+  resolved "https://registry.yarnpkg.com/@umijs/plugin-request/-/plugin-request-2.7.0.tgz#a2a8b4760b836b7d875dd661c97416b45f69c39d"
+  integrity sha512-n1oH0j14skld4eHNVQg23XcZaH8nZFcCaEE6bZKJKWCMvortovIqMBxc1dw5vVdsVdLe9fSJzYh7v1agB3iRtA==
   dependencies:
     "@ahooksjs/use-request" "^2.0.0"
     umi-request "^1.2.14"
 
-"@umijs/plugin-test@1.0.0":
-  version "1.0.0"
-  resolved "https://registry.npm.taobao.org/@umijs/plugin-test/download/@umijs/plugin-test-1.0.0.tgz#6438ab9619395b6dd4ffb9e3f546c6564a31dd31"
-  integrity sha1-ZDirlhk5W23U/7nj9UbGVkox3TE=
+"@umijs/plugin-test@1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@umijs/plugin-test/-/plugin-test-1.0.1.tgz#a2555d78086ccbe4c497ad600543430aee9c6c80"
+  integrity sha512-0BTq+mZdQgxNypOQA/NiT924rQHydUOUKNyY/nucwpBQ7Z4yNG8/gORiLnXYGgn8u9kUKrWud7b6FY/OGfsalw==
   dependencies:
-    "@umijs/test" "^3.0.7"
+    "@umijs/test" "~3.4.25"
 
 "@umijs/preset-built-in@3.3.9":
   version "3.3.9"
@@ -3868,23 +3922,23 @@
     umi-webpack-bundle-analyzer "3.6.0"
     zlib "1.0.5"
 
-"@umijs/preset-react@^1.8.0":
-  version "1.8.0"
-  resolved "https://registry.yarnpkg.com/@umijs/preset-react/-/preset-react-1.8.0.tgz#fe73a59fd58d874525434cbecd31e8cb96e5d3a4"
-  integrity sha512-4IZ3NEt0Wnd7AkzdW+uI9e8t5AapJQl056OLnjf+EtMLgp0SAk2/W4Tgn8bD0ifRIYxHh4bsCKOf4WfRKeYv4A==
+"@umijs/preset-react@^1.8.21":
+  version "1.8.21"
+  resolved "https://registry.yarnpkg.com/@umijs/preset-react/-/preset-react-1.8.21.tgz#1c4b06eb37571cb3fdd03390faded7fcaf73fdfc"
+  integrity sha512-1yQ76z9TTwmSSlkuN7jxhaxZ0Ga+RymKszlgQrN4TIb0DoAhYVkVxUrGmJFftKojDVVloywyzt6Lc8DTkY2bIw==
   dependencies:
-    "@umijs/plugin-access" "2.3.3"
+    "@umijs/plugin-access" "2.4.2"
     "@umijs/plugin-analytics" "0.2.2"
-    "@umijs/plugin-antd" "0.9.1"
-    "@umijs/plugin-crossorigin" "1.2.0"
-    "@umijs/plugin-dva" "0.10.0"
-    "@umijs/plugin-helmet" "1.1.1"
-    "@umijs/plugin-initial-state" "2.3.0"
-    "@umijs/plugin-layout" "0.13.5"
-    "@umijs/plugin-locale" "0.10.9"
-    "@umijs/plugin-model" "2.5.6"
-    "@umijs/plugin-request" "2.5.2"
-    "@umijs/plugin-test" "1.0.0"
+    "@umijs/plugin-antd" "0.10.0"
+    "@umijs/plugin-crossorigin" "1.2.1"
+    "@umijs/plugin-dva" "0.13.0"
+    "@umijs/plugin-helmet" "1.1.3"
+    "@umijs/plugin-initial-state" "2.4.0"
+    "@umijs/plugin-layout" "0.17.2"
+    "@umijs/plugin-locale" "0.14.2"
+    "@umijs/plugin-model" "2.6.1"
+    "@umijs/plugin-request" "2.7.0"
+    "@umijs/plugin-test" "1.0.1"
 
 "@umijs/renderer-mpa@3.3.9":
   version "3.3.9"
@@ -3947,7 +4001,7 @@
     sockjs "0.3.21"
     spdy "4.0.2"
 
-"@umijs/test@^3.0.7", "@umijs/test@^3.3.9":
+"@umijs/test@^3.3.9":
   version "3.3.9"
   resolved "https://registry.yarnpkg.com/@umijs/test/-/test-3.3.9.tgz#5c6a585919eab3bc4098d647847fc23f4dad4989"
   integrity sha512-zCD9EeVLFDzF/k8E14v5TLSSm9AUYXjGecHPc3yhkjOsVGTlwG1fi20gfe4jNTrswdi1cy8BCDtsT4iFySYnHQ==
@@ -3961,6 +4015,24 @@
     identity-obj-proxy "3.0.0"
     jest "^25.4.0"
     jest-cli "^25.4.0"
+    jest-environment-jsdom-fourteen "1.0.1"
+    regenerator-runtime "^0.13.7"
+    whatwg-fetch "^3.5.0"
+
+"@umijs/test@~3.4.25":
+  version "3.4.25"
+  resolved "https://registry.yarnpkg.com/@umijs/test/-/test-3.4.25.tgz#9df95dc25cecaee9f45cdb62a227634defb5ae87"
+  integrity sha512-VfaQyvF3vkHkHROS3LYQjRvx3dwk1Lv56gfgDIHGCX2n2ARSGyaFTbXsv/QafrKENDTDp3FTcTIUG6oY6mHH2g==
+  dependencies:
+    "@babel/core" "7.12.10"
+    "@umijs/babel-preset-umi" "3.4.25"
+    "@umijs/utils" "3.4.25"
+    babel-core "7.0.0-bridge.0"
+    babel-jest "^26.6.3"
+    core-js "3.8.2"
+    identity-obj-proxy "3.0.0"
+    jest "^26.6.3"
+    jest-cli "^26.6.3"
     jest-environment-jsdom-fourteen "1.0.1"
     regenerator-runtime "^0.13.7"
     whatwg-fetch "^3.5.0"
@@ -4033,6 +4105,13 @@
     signale "1.4.0"
     yargs "15.4.1"
     yargs-parser "18.1.3"
+
+"@umijs/utils@3.4.25":
+  version "3.4.25"
+  resolved "https://registry.yarnpkg.com/@umijs/utils/-/utils-3.4.25.tgz#47e4b76da92dd1e7e4b10301b873faf1e6706762"
+  integrity sha512-r/IiNRE7gM572Tp6JJgJ6KhioOdFWUL+1OQ51QdTah44CSzFbQTh/tjF6CWEErBzTVZ6O6W9P04XnmF8TCin4Q==
+  dependencies:
+    "@umijs/deps" "3.4.25"
 
 "@webassemblyjs/ast@1.9.0":
   version "1.9.0"
@@ -5906,6 +5985,21 @@ chokidar@3.4.3:
   optionalDependencies:
     fsevents "~2.1.2"
 
+chokidar@3.5.1, chokidar@^3.4.1, chokidar@^3.4.2:
+  version "3.5.1"
+  resolved "https://registry.npm.taobao.org/chokidar/download/chokidar-3.5.1.tgz?cache=0&sync_timestamp=1610719384066&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fchokidar%2Fdownload%2Fchokidar-3.5.1.tgz#ee9ce7bbebd2b79f49f304799d5468e31e14e68a"
+  integrity sha1-7pznu+vSt59J8wR5nVRo4x4U5oo=
+  dependencies:
+    anymatch "~3.1.1"
+    braces "~3.0.2"
+    glob-parent "~5.1.0"
+    is-binary-path "~2.1.0"
+    is-glob "~4.0.1"
+    normalize-path "~3.0.0"
+    readdirp "~3.5.0"
+  optionalDependencies:
+    fsevents "~2.3.1"
+
 chokidar@^2.1.8:
   version "2.1.8"
   resolved "https://registry.npm.taobao.org/chokidar/download/chokidar-2.1.8.tgz?cache=0&sync_timestamp=1610719384066&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fchokidar%2Fdownload%2Fchokidar-2.1.8.tgz#804b3a7b6a99358c3c5c61e71d8728f041cff917"
@@ -5924,21 +6018,6 @@ chokidar@^2.1.8:
     upath "^1.1.1"
   optionalDependencies:
     fsevents "^1.2.7"
-
-chokidar@^3.4.1, chokidar@^3.4.2:
-  version "3.5.1"
-  resolved "https://registry.npm.taobao.org/chokidar/download/chokidar-3.5.1.tgz?cache=0&sync_timestamp=1610719384066&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fchokidar%2Fdownload%2Fchokidar-3.5.1.tgz#ee9ce7bbebd2b79f49f304799d5468e31e14e68a"
-  integrity sha1-7pznu+vSt59J8wR5nVRo4x4U5oo=
-  dependencies:
-    anymatch "~3.1.1"
-    braces "~3.0.2"
-    glob-parent "~5.1.0"
-    is-binary-path "~2.1.0"
-    is-glob "~4.0.1"
-    normalize-path "~3.0.0"
-    readdirp "~3.5.0"
-  optionalDependencies:
-    fsevents "~2.3.1"
 
 chownr@^1.1.1, chownr@^1.1.2, chownr@^1.1.4:
   version "1.1.4"
@@ -12249,7 +12328,7 @@ jest-watcher@^26.6.2:
     jest-util "^26.6.2"
     string-length "^4.0.1"
 
-jest-worker@^24.9.0:
+jest-worker@24.9.0, jest-worker@^24.9.0:
   version "24.9.0"
   resolved "https://registry.npm.taobao.org/jest-worker/download/jest-worker-24.9.0.tgz#5dbfdb5b2d322e98567898238a9697bcce67b3e5"
   integrity sha1-Xb/bWy0yLphWeJgjipaXvM5ns+U=
@@ -20549,7 +20628,7 @@ typeorm@^0.2.31:
     yargonaut "^1.1.2"
     yargs "^16.0.3"
 
-typescript@^4.0.2, typescript@^4.1.5, typescript@^4.2.3:
+typescript@^4.0.2, typescript@^4.1.5:
   version "4.2.3"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.2.3.tgz#39062d8019912d43726298f09493d598048c1ce3"
   integrity sha512-qOcYwxaByStAWrBf4x0fibwZvMRG+r4cQoTjbPtUlrWjBHbmCAww1i448U0GJ+3cNNEtebDteo/cHOR3xJ4wEw==
