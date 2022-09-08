@@ -1636,21 +1636,20 @@
     ajv "^6.12.0"
     ajv-keywords "^3.4.1"
 
-"@electron/get@^1.0.1":
-  version "1.12.3"
-  resolved "https://registry.npm.taobao.org/@electron/get/download/@electron/get-1.12.3.tgz#fa2723385c4b565a34c4c82f46087aa2a5fbf6d0"
-  integrity sha1-+icjOFxLVlo0xMgvRgh6oqX79tA=
+"@electron/get@^1.0.1", "@electron/get@^1.14.1":
+  version "1.14.1"
+  resolved "https://registry.yarnpkg.com/@electron/get/-/get-1.14.1.tgz#16ba75f02dffb74c23965e72d617adc721d27f40"
+  integrity sha512-BrZYyL/6m0ZXz/lDxy/nlVhQz+WF+iPS6qXolEU8atw7h6v1aYkjwJZ63m+bJMBTxDE66X+r2tPS4a/8C82sZw==
   dependencies:
     debug "^4.1.1"
     env-paths "^2.2.0"
-    filenamify "^4.1.0"
     fs-extra "^8.1.0"
     got "^9.6.0"
     progress "^2.0.3"
     semver "^6.2.0"
     sumchecker "^3.0.1"
   optionalDependencies:
-    global-agent "^2.0.2"
+    global-agent "^3.0.0"
     global-tunnel-ng "^2.7.1"
 
 "@electron/universal@1.0.4":
@@ -3076,10 +3075,10 @@
   resolved "https://registry.npm.taobao.org/@types/mustache/download/@types/mustache-4.1.0.tgz#b702b1e2879d9ff1f39ac89a4a7784a489aee947"
   integrity sha1-twKx4oedn/HzmsiaSneEpImu6Uc=
 
-"@types/node@*", "@types/node@>= 8":
-  version "14.14.31"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-14.14.31.tgz#72286bd33d137aa0d152d47ec7c1762563d34055"
-  integrity sha512-vFHy/ezP5qI0rFgJ7aQnjDXwAMrG0KqqIH7tQG5PPv3BWBayOPIQNBjVc/P6hhdZfMx51REc6tfDNXHUio893g==
+"@types/node@*", "@types/node@>= 8", "@types/node@^16.11.26":
+  version "16.11.58"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-16.11.58.tgz#0a3698dee3492617a8d5fe7998d18d7520b63026"
+  integrity sha512-uMVxJ111wpHzkx/vshZFb6Qni3BOMnlWLq7q9jrwej7Yw/KvjsEbpxCCxw+hLKxexFMc8YmpG8J9tnEe/rKsIg==
 
 "@types/node@14.0.23":
   version "14.0.23"
@@ -3482,6 +3481,13 @@
   integrity sha1-NPf+yLOJ1/PB/QgCaldj4HLTxtw=
   dependencies:
     "@types/yargs-parser" "*"
+
+"@types/yauzl@^2.9.1":
+  version "2.10.0"
+  resolved "https://registry.yarnpkg.com/@types/yauzl/-/yauzl-2.10.0.tgz#b3248295276cf8c6f153ebe6a9aba0c988cb2599"
+  integrity sha512-Cn6WYCm0tXv8p6k+A8PvbDG763EDpBoTzHdA+Q/MF6H3sapGjCm9NzoaJncJS9tUKSuCoDs9XHxYYsQDgxR6kw==
+  dependencies:
+    "@types/node" "*"
 
 "@typescript-eslint/eslint-plugin@^4.10.0":
   version "4.14.2"
@@ -8125,7 +8131,7 @@ electron-webpack@^2.8.2:
     webpack-merge "^4.2.2"
     yargs "^15.3.1"
 
-electron@^11.2.3, electron@^11.3.0:
+electron@^11.2.3:
   version "11.3.0"
   resolved "https://registry.npm.taobao.org/electron/download/electron-11.3.0.tgz?cache=0&sync_timestamp=1614963218548&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Felectron%2Fdownload%2Felectron-11.3.0.tgz#87e8528fd23ae53b0eeb3a738f1fe0a3ad27c2db"
   integrity sha1-h+hSj9I65TsO6zpzjx/go60nwts=
@@ -8133,6 +8139,15 @@ electron@^11.2.3, electron@^11.3.0:
     "@electron/get" "^1.0.1"
     "@types/node" "^12.0.12"
     extract-zip "^1.0.3"
+
+electron@^20.1.2:
+  version "20.1.2"
+  resolved "https://registry.yarnpkg.com/electron/-/electron-20.1.2.tgz#ef5502e4a1ea7c08bfbae17a49da861ac9f882dc"
+  integrity sha512-Yz2GAUqgXNr3+7vI+xL3qoCBUw4nVX+MeF/+HNL80y67ZrhMFUbJFirw7Tm6/Kx8r6TBPz0/D3aleeySWFUmzw==
+  dependencies:
+    "@electron/get" "^1.14.1"
+    "@types/node" "^16.11.26"
+    extract-zip "^2.0.1"
 
 electron@^9.1.0:
   version "9.4.2"
@@ -9052,6 +9067,17 @@ extract-zip@^1.0.3:
     mkdirp "^0.5.4"
     yauzl "^2.10.0"
 
+extract-zip@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/extract-zip/-/extract-zip-2.0.1.tgz#663dca56fe46df890d5f131ef4a06d22bb8ba13a"
+  integrity sha512-GDhU9ntwuKyGXdZBUgTIe+vXnWj0fppUEtMDL0+idd5Sta8TGpHssn/eusA9mrPr9qNDym6SxAYZjNvCn/9RBg==
+  dependencies:
+    debug "^4.1.1"
+    get-stream "^5.1.0"
+    yauzl "^2.10.0"
+  optionalDependencies:
+    "@types/yauzl" "^2.9.1"
+
 extsprintf@1.3.0:
   version "1.3.0"
   resolved "https://registry.npm.taobao.org/extsprintf/download/extsprintf-1.3.0.tgz#96918440e3041a7a414f8c52e3c574eb3c3e1e05"
@@ -9209,20 +9235,6 @@ filelist@^1.0.1:
   integrity sha1-8Q0aOuhsFpSAjo8gkG9D1MkTLbs=
   dependencies:
     minimatch "^3.0.4"
-
-filename-reserved-regex@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.npm.taobao.org/filename-reserved-regex/download/filename-reserved-regex-2.0.0.tgz#abf73dfab735d045440abfea2d91f389ebbfa229"
-  integrity sha1-q/c9+rc10EVECr/qLZHzieu/oik=
-
-filenamify@^4.1.0:
-  version "4.2.0"
-  resolved "https://registry.npm.taobao.org/filenamify/download/filenamify-4.2.0.tgz#c99716d676869585b3b5d328b3f06590d032e89f"
-  integrity sha1-yZcW1naGlYWztdMos/BlkNAy6J8=
-  dependencies:
-    filename-reserved-regex "^2.0.0"
-    strip-outer "^1.0.1"
-    trim-repeated "^1.0.0"
 
 filesize@^3.6.1:
   version "3.6.1"
@@ -9796,13 +9808,12 @@ glob@7.1.6, glob@^7.0.0, glob@^7.0.3, glob@^7.1.1, glob@^7.1.2, glob@^7.1.3, glo
     once "^1.3.0"
     path-is-absolute "^1.0.0"
 
-global-agent@^2.0.2:
-  version "2.1.12"
-  resolved "https://registry.npm.taobao.org/global-agent/download/global-agent-2.1.12.tgz#e4ae3812b731a9e81cbf825f9377ef450a8e4195"
-  integrity sha1-5K44Ercxqegcv4Jfk3fvRQqOQZU=
+global-agent@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/global-agent/-/global-agent-3.0.0.tgz#ae7cd31bd3583b93c5a16437a1afe27cc33a1ab6"
+  integrity sha512-PT6XReJ+D07JvGoxQMkT6qji/jVNfX/h364XHZOWeRzy64sSFr+xJ5OX7LI3b4MPQzdL4H8Y8M0xzPpsVMwA8Q==
   dependencies:
     boolean "^3.0.1"
-    core-js "^3.6.5"
     es6-error "^4.1.1"
     matcher "^3.0.0"
     roarr "^2.15.3"
@@ -19556,13 +19567,6 @@ strip-json-comments@^3.1.0, strip-json-comments@^3.1.1:
   resolved "https://registry.npm.taobao.org/strip-json-comments/download/strip-json-comments-3.1.1.tgz?cache=0&sync_timestamp=1594571796132&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fstrip-json-comments%2Fdownload%2Fstrip-json-comments-3.1.1.tgz#31f1281b3832630434831c310c01cccda8cbe006"
   integrity sha1-MfEoGzgyYwQ0gxwxDAHMzajL4AY=
 
-strip-outer@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.npm.taobao.org/strip-outer/download/strip-outer-1.0.1.tgz#b2fd2abf6604b9d1e6013057195df836b8a9d631"
-  integrity sha1-sv0qv2YEudHmATBXGV34Nrip1jE=
-  dependencies:
-    escape-string-regexp "^1.0.2"
-
 style-loader@1.3.0, style-loader@^1.1.3:
   version "1.3.0"
   resolved "https://registry.npm.taobao.org/style-loader/download/style-loader-1.3.0.tgz#828b4a3b3b7e7aa5847ce7bae9e874512114249e"
@@ -20316,13 +20320,6 @@ trim-off-newlines@^1.0.0:
   resolved "https://registry.npm.taobao.org/trim-off-newlines/download/trim-off-newlines-1.0.1.tgz#9f9ba9d9efa8764c387698bcbfeb2c848f11adb3"
   integrity sha1-n5up2e+odkw4dpi8v+sshI8RrbM=
 
-trim-repeated@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.npm.taobao.org/trim-repeated/download/trim-repeated-1.0.0.tgz#e3646a2ea4e891312bf7eace6cfb05380bc01c21"
-  integrity sha1-42RqLqTokTEr9+rObPsFOAvAHCE=
-  dependencies:
-    escape-string-regexp "^1.0.2"
-
 trim-trailing-lines@^1.0.0:
   version "1.1.4"
   resolved "https://registry.npm.taobao.org/trim-trailing-lines/download/trim-trailing-lines-1.1.4.tgz?cache=0&sync_timestamp=1603876556993&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Ftrim-trailing-lines%2Fdownload%2Ftrim-trailing-lines-1.1.4.tgz#bd4abbec7cc880462f10b2c8b5ce1d8d1ec7c2c0"
@@ -20549,7 +20546,7 @@ typeorm@^0.2.31:
     yargonaut "^1.1.2"
     yargs "^16.0.3"
 
-typescript@^4.0.2, typescript@^4.1.5, typescript@^4.2.3:
+typescript@^4.0.2, typescript@^4.1.5:
   version "4.2.3"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.2.3.tgz#39062d8019912d43726298f09493d598048c1ce3"
   integrity sha512-qOcYwxaByStAWrBf4x0fibwZvMRG+r4cQoTjbPtUlrWjBHbmCAww1i448U0GJ+3cNNEtebDteo/cHOR3xJ4wEw==
