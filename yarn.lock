@@ -1736,6 +1736,11 @@
   resolved "https://registry.npm.taobao.org/@gitmoji/parser-opts/download/@gitmoji/parser-opts-1.3.0.tgz#7118a512342afd89c895cb2fd95454fa73f377bb"
   integrity sha1-cRilEjQq/YnIlcsv2VRU+nPzd7s=
 
+"@gitmoji/parser-opts@1.3.1":
+  version "1.3.1"
+  resolved "https://registry.yarnpkg.com/@gitmoji/parser-opts/-/parser-opts-1.3.1.tgz#a90e1596046febf8c7da90b416462503212477b6"
+  integrity sha512-5r0EocA6sWoAm6eQYIkKRLtSZpSu6sPVSQmGkjgbV60AE0FBX16usHbrF6phKoy2sY9mGeCYvENNiCq6xUsntQ==
+
 "@hapi/address@^2.1.2":
   version "2.1.4"
   resolved "https://registry.npm.taobao.org/@hapi/address/download/@hapi/address-2.1.4.tgz?cache=0&sync_timestamp=1603524710662&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40hapi%2Faddress%2Fdownload%2F%40hapi%2Faddress-2.1.4.tgz#5d67ed43f3fd41a69d4b9ff7b56e7c0d1d0a81e5"
@@ -3270,6 +3275,13 @@
   version "0.16.1"
   resolved "https://registry.yarnpkg.com/@types/scheduler/-/scheduler-0.16.1.tgz#18845205e86ff0038517aab7a18a62a6b9f71275"
   integrity sha512-EaCxbanVeyxDRTQBkdLb3Bvl/HK7PBK6UJjsSixB0iHKoWxE5uu2Q/DgtpOhPIojN0Zl1whvOd7PoHs2P0s5eA==
+
+"@types/semantic-release@^17.2.0":
+  version "17.2.4"
+  resolved "https://registry.yarnpkg.com/@types/semantic-release/-/semantic-release-17.2.4.tgz#2b82cd645a4e10547737d37248ca581ab799fa33"
+  integrity sha512-Ud2GB2+0WgyBrKB7PbyZA+bud3QD0z3Iv6KPx6FfeMUNDekw3EWgZi3eLKXoeGDPBo+hev74NN1pEPMp0rL2vQ==
+  dependencies:
+    "@types/node" "*"
 
 "@types/semver@7.3.4", "@types/semver@^7.3.4":
   version "7.3.4"
@@ -6541,13 +6553,13 @@ conventional-changelog-angular@^5.0.0, conventional-changelog-angular@^5.0.11:
     compare-func "^2.0.0"
     q "^1.5.1"
 
-conventional-changelog-gitmoji-config@1.4.2:
-  version "1.4.2"
-  resolved "https://registry.npm.taobao.org/conventional-changelog-gitmoji-config/download/conventional-changelog-gitmoji-config-1.4.2.tgz#4c08bda06b77eaa4c8c286c88fffb04db96404e0"
-  integrity sha1-TAi9oGt36qTIwobIj/+wTblkBOA=
+conventional-changelog-gitmoji-config@1.4.4:
+  version "1.4.4"
+  resolved "https://registry.yarnpkg.com/conventional-changelog-gitmoji-config/-/conventional-changelog-gitmoji-config-1.4.4.tgz#45c370c04be4684cc13c471d7f41803e2bc4c28d"
+  integrity sha512-U3mKW1+Rf3jFksukRx37H4OebxAMqj4LVEYw09+cs6nQXm06I3pESlskLaZzzu/EGDHBfKCniCK9zPLyCGABPg==
   dependencies:
     "@gitmoji/commit-types" "1.1.5"
-    "@gitmoji/parser-opts" "1.3.0"
+    "@gitmoji/parser-opts" "1.3.1"
     cosmiconfig "^7.0.0"
 
 conventional-changelog-writer@^4.0.0:
@@ -18515,15 +18527,16 @@ selfsigned@^1.10.8:
   dependencies:
     node-forge "^0.10.0"
 
-semantic-release-config-gitmoji@^1.2.1:
-  version "1.2.1"
-  resolved "https://registry.npm.taobao.org/semantic-release-config-gitmoji/download/semantic-release-config-gitmoji-1.2.1.tgz?cache=0&sync_timestamp=1615089364326&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fsemantic-release-config-gitmoji%2Fdownload%2Fsemantic-release-config-gitmoji-1.2.1.tgz#49e42354178cf3ad7fb6594819ac1903b0d6bf85"
-  integrity sha1-SeQjVBeM861/tllIGawZA7DWv4U=
+semantic-release-config-gitmoji@^1.2.5:
+  version "1.2.5"
+  resolved "https://registry.yarnpkg.com/semantic-release-config-gitmoji/-/semantic-release-config-gitmoji-1.2.5.tgz#933e396498b808a5a8b820dbd6685d4ca8fdc559"
+  integrity sha512-UICYI8D3FMho8WgHFHRdMQTrIt3ephFUO7Ctl2blEffLO1w7xP5CO43GK9yCZRy2ghNVfk04xl96xjL/yvkMMQ==
   dependencies:
     "@gitmoji/commit-types" "1.1.5"
     "@semantic-release/changelog" "^5.0.1"
     "@semantic-release/git" "^9.0.0"
-    conventional-changelog-gitmoji-config "1.4.2"
+    "@types/semantic-release" "^17.2.0"
+    conventional-changelog-gitmoji-config "1.4.4"
 
 semantic-release@^17.4.1:
   version "17.4.1"
@@ -20549,7 +20562,7 @@ typeorm@^0.2.31:
     yargonaut "^1.1.2"
     yargs "^16.0.3"
 
-typescript@^4.0.2, typescript@^4.1.5, typescript@^4.2.3:
+typescript@^4.0.2, typescript@^4.1.5:
   version "4.2.3"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.2.3.tgz#39062d8019912d43726298f09493d598048c1ce3"
   integrity sha512-qOcYwxaByStAWrBf4x0fibwZvMRG+r4cQoTjbPtUlrWjBHbmCAww1i448U0GJ+3cNNEtebDteo/cHOR3xJ4wEw==
